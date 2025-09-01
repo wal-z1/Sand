@@ -3,7 +3,7 @@ import HeaderButtons from "./HeaderButtons";
 
 export default function Header() {
 	return (
-		<header className="bg-[#0F0F0F] border-b border-[#2A2A2A] font-source-sans">
+		<header className="bg-[#0F0F0F] border-b border-[hsl(0,0%,20%)] font-source-sans font-bold">
 			<div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-4 sm:px-6 lg:px-8">
 				{/*div to center the buttons and logo*/}
 				<div className="flex items-center gap-8">
@@ -16,7 +16,6 @@ export default function Header() {
 					</a>
 					<NavBar />
 				</div>
-
 				{/*  login buttons */}
 				<HeaderButtons />
 			</div>
