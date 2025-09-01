@@ -11,17 +11,14 @@ export default function Header() {
 				<Link
 					to="/"
 					// 3. Hover effect changed to brighten instead of darken.
-					className="group flex items-center gap-3 transition-all duration-200 ease-in-out">
+					className="flex items-center gap-3 filter transition duration-500 ease-in-out hover:brightness-130">
 					<img
 						src="/logo.png"
 						alt="Sand Logo"
-						// Added a subtle white drop shadow (glow) here:
-						className="h-9 w-auto transition duration-200 
-						            drop-shadow-[0_0_4px_#c2b2806c] 
-						            group-hover:brightness-125"
+						className="h-9 w-auto 
+             drop-shadow-[0_0_4px_#c2b2806c] "
 					/>
-
-					<span className="text-xl font-extrabold text-[#EAEAEA] transition-colors duration-200 group-hover:text-white">
+					<span className="text-xl font-extrabold text-[#EAEAEA] transition-colors duration-500 ease-in-out hover:text-white">
 						Sand
 					</span>
 					{/* Nav bar removed, logo moved to left side */}
