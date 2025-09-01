@@ -2,6 +2,10 @@
 @import "tailwindcss";
 @theme {
 	--font-sora: "Sora", sans-serif; /*logos and headers*/
-	--font-source-sans: "Source Sans 3", sans-serif;/*text font*/
-	--font-ibm-mono: "IBM Plex Mono", monospace;/*META FONT*/
+	--font-source-sans: "Source Sans 3", sans-serif; /*text font*/
+	--font-ibm-mono: "IBM Plex Mono", monospace; /*META FONT*/
+}
+
+#root {
+	background-color: #0f0f0f;
 }
