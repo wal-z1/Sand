@@ -1,11 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "./Comp/Header/Header";
+import Home from "./Comp/Pages/Home";
 function App() {
 	return (
 		<>
-			<Header/>
+			<Header />
 			<Routes>
-				<Route path="step-2" element={<></>}></Route>
+				<Route path="home" element={<Home></Home>}></Route>
 			</Routes>
 		</>
 	);
