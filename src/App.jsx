@@ -3,9 +3,9 @@ import Header from "./Comp/Header/Header";
 import Home from "./Comp/Pages/Home";
 function App() {
 	fetch("https://api.github.com/repos/wal-z1/Sand/commits")
-		.then((res) => res.json)
-		.then((res) => console.log(res));
-
+		.then((res) => res.json())
+		.then((res) => console.log(res))
+		.catch((ERRORS) => console.error("Sorry We ran into this Error", ERRORS));
 	return (
 		<>
 			<Header />
