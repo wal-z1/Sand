@@ -13,7 +13,7 @@ function Home() {
 			initial={{ opacity: 0.97 }}
 			animate={{
 				opacity: 1,
-				// Dynamically adjust grid columns based on sidebar state
+				// dynamically adjust grid columns based on sidebar state
 				gridTemplateColumns: LeftIsHidden ? "65px 3fr 1fr" : "250px 3fr 1fr",
 			}}
 			// smooth animation for state changes
