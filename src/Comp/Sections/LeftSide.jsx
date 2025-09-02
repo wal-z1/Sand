@@ -1,7 +1,8 @@
 import NavBar from "../Header/Navbar";
+import SideFooter from "../Ui/SideFooter";
 function LeftSide() {
 	return (
-		<div // used only for sizign will changed to empty element later
+		<aside // used only for sizign will changed to empty element later
 			// Left Nav buttons moved here (3 buttons: Home, Explore, About + Footer)
 			className="border-2 border-amber-100">
 			<span className="flex items-center">
@@ -11,7 +12,8 @@ function LeftSide() {
 				<span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#C2B280]  "></span>
 			</span>
 			<NavBar />
-		</div>
+			<SideFooter />
+		</aside>
 	);
 }
 
