@@ -4,7 +4,7 @@ function LeftSide() {
 	return (
 		<aside // used only for sizign will changed to empty element later
 			// Left Nav buttons moved here (3 buttons: Home, Explore, About + Footer)
-			className="border-2 border-amber-100">
+			className="border-r-1 border-[#C2B280] pr-2">
 			<span className="flex items-center">
 				<h3 className=" pl-1.5 pr-0.5 pb-2 font-sora text-sm font-semibold uppercase tracking-widest text-[#A1A1A1]/50">
 					Navigation

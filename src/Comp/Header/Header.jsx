@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
 	return (
 		<header
+		//TODO ADD DARK MODE TOGGLE BUTTON
 			// bottom border using primarry with less opacity
 			// backdrop blur and saturation for better visual effect
 			className="sticky top-0 z-50 border-b border-[#C2B280]/40 bg-[#0f0f0f]/50 backdrop-blur-lg backdrop-saturate-150">

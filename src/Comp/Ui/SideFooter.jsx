@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-const Date = 2025;
-// use a fetch for the commits TODO
+import { useEffect, useState } from "react";
+import formatRelative from "../../lib/date";
 
 // icons
 const SettingsIcon = (
@@ -46,6 +46,26 @@ const FeedbackIcon = (
 );
 
 export default function SideFooter() {
+	const [CommitDate, AssignCommitDate] = useState("Loading...");
+	async function fetchCommits() {
+		try {
+			const res = await fetch(
+				"https://api.github.com/repos/wal-z1/Sand/commits"
+			);
+			const data = await res.json();
+			const latestDate = data[0].commit.author.date;
+			console.log(formatRelative(latestDate));
+			AssignCommitDate((prev) => formatRelative(latestDate));
+		} catch (err) {
+			console.error(err);
+			AssignCommitDate((prev) => "Error Fetching Data");
+		}
+	}
+
+	useEffect(() => {
+		fetchCommits();
+	}, []);
+
 	// medium muted text with the gold hover and flex centred with the icon aligned left
 	const linkStyle =
 		"flex items-center gap-2 px-2 py-1 font-source-sans text-sm font-medium text-[#A1A1A1] transition-colors duration-200 ease-in-out hover:text-[#E5C07B] text-left";
@@ -88,7 +108,7 @@ export default function SideFooter() {
 				© 2025 Sand |
 			</p>
 			<p className=" mt-1 mb-2 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
-				Last updated: [{Date}]
+				Last updated: [{CommitDate}]
 			</p>
 		</footer>
 	);
