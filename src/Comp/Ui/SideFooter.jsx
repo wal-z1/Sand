@@ -75,14 +75,13 @@ export default function SideFooter() {
 
 	return (
 		<AnimatePresence>
-			{!LeftIsHidden && (
+			{!LeftIsHidden ? (
 				<motion.footer
 					animate={{ opacity: 1, x: 0 }}
 					exit={{ opacity: 0, y: 50 }}
 					transition={{ duration: 0.3, ease: "easeInOut" }}
 					// vertical center with a bit of padding incase
 					className="mt-auto px-2 pt-4 ">
-
 					{/*
 						TODO STICK TO SCREEN BOTTOM
 				*/}
@@ -126,7 +125,7 @@ export default function SideFooter() {
 						© 2025 Sand
 					</p>
 				</motion.footer>
-			)}
+			) : null}
 		</AnimatePresence>
 	);
 }

@@ -3,15 +3,14 @@ import MainSection from "../Sections/MainSection";
 import LeftSide from "../Sections/LeftSide";
 import { UseViewContext } from "../../Context/ViewContext";
 import { motion } from "framer-motion";
-
+// TODO HIDE THE SIDE BAR ON MOBILE AND  REPLACE WITH A buttons on header
 function Home() {
 	const { LeftIsHidden } = UseViewContext();
 	return (
 		<>
-			{/*we are deviding the website into 3 secitions left and righ and middle
-					a grid is better 
-			*/}
 			<motion.div
+				
+		
 				className="font-source-sans grid  gap-3 text-[#EAEAEA] mt-1.5"
 				// animate the grid-cols based on the LeftIsHidden state
 				animate={{

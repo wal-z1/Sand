@@ -23,7 +23,7 @@ function LeftSide() {
 			</button>
 
 			{/* The pr-2 was moved to a container inside to stop the button from shifting */}
-			<aside className="flex h-full flex-col">
+			<aside className="flex flex-col">
 				<div className="pr-2">
 					<AnimatePresence>
 						{!LeftIsHidden && (
