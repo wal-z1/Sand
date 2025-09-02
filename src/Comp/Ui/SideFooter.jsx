@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import formatRelative from "../../lib/date";
+import { motion, AnimatePresence } from "framer-motion";
 
 // icons
 const SettingsIcon = (
@@ -71,7 +72,11 @@ export default function SideFooter() {
 		"flex items-center gap-2 px-2 py-1 font-source-sans text-sm font-medium text-[#A1A1A1] transition-colors duration-200 ease-in-out hover:text-[#E5C07B] text-left";
 
 	return (
-		<footer // vertical center with a bit of padding incase
+		<motion.footer
+			animate={{ opacity: 1, x: 0 }}
+			exit={{ opacity: 0, x: -50 }}
+			transition={{ duration: 0.3, ease: "easeInOut" }}
+			// vertical center with a bit of padding incase
 			className="mt-auto px-2 pt-4 ">
 			{/*Might need to add  Current user here TODO*/}
 			{/* Divider */}
@@ -110,6 +115,6 @@ export default function SideFooter() {
 			<p className="mt-1 px-2 mb-2 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
 				© 2025 Sand
 			</p>
-		</footer>
+		</motion.footer>
 	);
 }
