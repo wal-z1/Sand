@@ -8,7 +8,7 @@ function Home() {
 				{/*placeholder for sizing
 				 */}
 				<div className="bg-red-500">
-					Left Nav buttons moved here (3 buttons: Home, Explore, About){" "}
+					Left Nav buttons moved here (3 buttons: Home, Explore, About + Footer){" "}
 				</div>
 				<div className="bg-green-500">
 					- **Section 2: Sorting Bar** - Options: New | Top | Hot - **Section 3:
@@ -21,3 +21,4 @@ function Home() {
 	);
 }
 
+export default Home;
