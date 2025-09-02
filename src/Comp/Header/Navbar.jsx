@@ -39,45 +39,67 @@ const AboutIcon = () => (
 		/>
 	</svg>
 );
-
 export default function NavBar() {
 	const buttonstyle =
 		"flex w-full items-center gap-3 rounded-md px-4 py-2 font-source-sans font-medium text-lg text-[#A1A1A1] transition-all duration-200 ease-in-out hover:bg-white/10 hover:text-[#E5C07B] cursor-pointer";
 	const { LeftIsHidden } = UseViewContext();
+
+	// animation variants for the text
+	const textVariant = {
+		initial: { opacity: 0, x: -20 },
+		animate: { opacity: 1, x: 0 },
+		exit: { opacity: 0, x: -20 },
+		transition: { duration: 0.2, ease: "easeInOut" },
+	};
+
 	return (
 		<nav className="grid grid-rows-3 gap-2">
 			<button className={buttonstyle} title="Go to Home">
 				<HomeIcon />
-				{!LeftIsHidden && (
-					<motion.span
-						animate={{ opacity: 1, x: 0 }}
-						exit={{ opacity: 0, x: -50 }}
-						transition={{ duration: 0.3, ease: "easeInOut" }}>
-						Home
-					</motion.span>
-				)}
+				<AnimatePresence>
+					{!LeftIsHidden && (
+						<motion.span
+							variants={textVariant}
+							initial="initial"
+							animate="animate"
+							exit="exit"
+							transition={textVariant.transition}>
+							Home
+						</motion.span>
+					)}
+				</AnimatePresence>
 			</button>
+
 			<button className={buttonstyle} title="Explore content">
 				<ExploreIcon />
-				{!LeftIsHidden && (
-					<motion.span
-						animate={{ opacity: 1, x: 0 }}
-						exit={{ opacity: 0, x: -50 }}
-						transition={{ duration: 0.3, ease: "easeInOut" }}>
-						Explore
-					</motion.span>
-				)}
+				<AnimatePresence>
+					{!LeftIsHidden && (
+						<motion.span
+							variants={textVariant}
+							initial="initial"
+							animate="animate"
+							exit="exit"
+							transition={textVariant.transition}>
+							Explore
+						</motion.span>
+					)}
+				</AnimatePresence>
 			</button>
+
 			<button className={buttonstyle} title="Learn more about sand">
 				<AboutIcon />
-				{!LeftIsHidden && (
-					<motion.span
-						animate={{ opacity: 1, x: 0 }}
-						exit={{ opacity: 0, x: -50 }}
-						transition={{ duration: 0.3, ease: "easeInOut" }}>
-						About
-					</motion.span>
-				)}
+				<AnimatePresence>
+					{!LeftIsHidden && (
+						<motion.span
+							variants={textVariant}
+							initial="initial"
+							animate="animate"
+							exit="exit"
+							transition={textVariant.transition}>
+							About
+						</motion.span>
+					)}
+				</AnimatePresence>
 			</button>
 		</nav>
 	);

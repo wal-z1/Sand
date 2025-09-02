@@ -73,50 +73,59 @@ export default function SideFooter() {
 	const linkStyle =
 		"flex items-center gap-2 px-2 py-1 font-source-sans text-sm font-medium text-[#A1A1A1] transition-colors duration-200 ease-in-out hover:text-[#E5C07B] text-left";
 
-	return !LeftIsHidden ? (
-		<motion.footer
-			animate={{ opacity: 1, x: 0 }}
-			exit={{ opacity: 0, x: -50 }}
-			transition={{ duration: 0.3, ease: "easeInOut" }}
-			// vertical center with a bit of padding incase
-			className="mt-auto px-2 pt-4 ">
-			{/*Might need to add  Current user here TODO*/}
-			{/* Divider */}
-			<div className="h-px w-full bg-gradient-to-r from-transparent via-[#C2B280]/50 to-transparent"></div>
+	return (
+		<AnimatePresence>
+			{!LeftIsHidden && (
+				<motion.footer
+					animate={{ opacity: 1, x: 0 }}
+					exit={{ opacity: 0, y: 50 }}
+					transition={{ duration: 0.3, ease: "easeInOut" }}
+					// vertical center with a bit of padding incase
+					className="mt-auto px-2 pt-4 ">
+					{/*Might need to add  Current user here TODO
+						TODO STICK TO SCREEN BOTTOM
+				*/}
+					{/* Divider */}
+					<div className="h-px w-full bg-gradient-to-r from-transparent via-[#C2B280]/50 to-transparent"></div>
 
-			{/* Links */}
-			<div //top space flex vertical and a small gap
-				className="mt-4 flex flex-col gap-1">
-				<Link // insert icon then text
-					to="/settings"
-					title="Settings"
-					className={linkStyle}>
-					{SettingsIcon}
-					<span>Settings</span>
-				</Link>
+					{/* Links */}
+					<div //top space flex vertical and a small gap
+						className="mt-4 flex flex-col gap-1">
+						<Link // insert icon then text
+							to="/settings"
+							title="Settings"
+							className={linkStyle}>
+							{SettingsIcon}
+							<span>Settings</span>
+						</Link>
 
-				<Link to="/feedbackpage" title="Feedback Page" className={linkStyle}>
-					{FeedbackIcon}
-					<span>Give Feedback</span>
-				</Link>
+						<Link
+							to="/feedbackpage"
+							title="Feedback Page"
+							className={linkStyle}>
+							{FeedbackIcon}
+							<span>Give Feedback</span>
+						</Link>
 
-				<a
-					href="https://github.com/wal-z1/Sand"
-					target="_blank"
-					title="Github Page"
-					className={linkStyle}>
-					{CodeIcon}
-					<span>Source Code</span>
-				</a>
-			</div>
+						<a
+							href="https://github.com/wal-z1/Sand"
+							target="_blank"
+							title="Github Page"
+							className={linkStyle}>
+							{CodeIcon}
+							<span>Source Code</span>
+						</a>
+					</div>
 
-			{/* Footer info */}
-			<p className=" mt-4 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
-				Last updated: [{CommitDate}]
-			</p>
-			<p className="mt-1 px-2 mb-2 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
-				© 2025 Sand
-			</p>
-		</motion.footer>
-	) : null;
+					{/* Footer info */}
+					<p className=" mt-4 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
+						Last updated: [{CommitDate}]
+					</p>
+					<p className="mt-1 px-2 mb-2 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
+						© 2025 Sand
+					</p>
+				</motion.footer>
+			)}
+		</AnimatePresence>
+	);
 }

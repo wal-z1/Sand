@@ -1,6 +1,6 @@
 import NavBar from "../Header/Navbar";
 import SideFooter from "../Ui/SideFooter";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { UseViewContext } from "../../Context/ViewContext";
 
 function LeftSide() {
@@ -25,12 +25,20 @@ function LeftSide() {
 			{/* The pr-2 was moved to a container inside to stop the button from shifting */}
 			<aside className="flex h-full flex-col">
 				<div className="pr-2">
-					<span className="flex items-center">
-						<h3 className="pl-1.5 pr-0.5 pb-2 font-sora text-sm font-semibold uppercase tracking-widest text-[#A1A1A1]/50">
-							Navigation
-						</h3>
-						<span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#C2B280]" />
-					</span>
+					<AnimatePresence>
+						{!LeftIsHidden && (
+							<motion.span
+								className="flex items-center"
+								animate={{ opacity: 1, x: 0 }}
+								exit={{ opacity: 0, x: -50 }}
+								transition={{ duration: 0.3, ease: "easeInOut" }}>
+								<h3 className="pl-1.5 pr-0.5 pb-2 font-sora text-sm font-semibold uppercase tracking-widest text-[#A1A1A1]/50">
+									Navigation
+								</h3>
+								<span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#C2B280]" />
+							</motion.span>
+						)}
+					</AnimatePresence>
 					<NavBar />
 				</div>
 				<SideFooter />
