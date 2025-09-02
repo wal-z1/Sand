@@ -16,7 +16,7 @@ function Home() {
 				// animate the grid-cols based on the LeftIsHidden state
 				animate={{
 					gridTemplateColumns: LeftIsHidden
-						? "80px 3fr 1fr" // collapsed : sidebar is a fixed 80px wide
+						? "65px 3fr 1fr" // collapsed : sidebar is a fixed 80px wide
 						: "250px 3fr 1fr", // expanded : sidebar is 250px wide
 				}}
 				// a smooth transition
