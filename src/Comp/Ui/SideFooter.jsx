@@ -82,7 +82,8 @@ export default function SideFooter() {
 					transition={{ duration: 0.3, ease: "easeInOut" }}
 					// vertical center with a bit of padding incase
 					className="mt-auto px-2 pt-4 ">
-					{/*Might need to add  Current user here TODO
+
+					{/*
 						TODO STICK TO SCREEN BOTTOM
 				*/}
 					{/* Divider */}

@@ -10,7 +10,6 @@ function Home() {
 		<>
 			{/*we are deviding the website into 3 secitions left and righ and middle
 					a grid is better 
-
 			*/}
 			<motion.div
 				className="font-source-sans grid  gap-3 text-[#EAEAEA] mt-1.5"
