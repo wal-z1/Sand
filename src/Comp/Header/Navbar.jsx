@@ -1,7 +1,8 @@
-//icons
+// icons
 import { motion, AnimatePresence } from "framer-motion";
 import { UseViewContext } from "../../Context/ViewContext";
 
+// home icon svg
 const HomeIcon = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -13,6 +14,7 @@ const HomeIcon = () => (
 	</svg>
 );
 
+// explore icon svg
 const ExploreIcon = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -26,6 +28,8 @@ const ExploreIcon = () => (
 		/>
 	</svg>
 );
+
+// about icon svg
 const AboutIcon = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -39,12 +43,15 @@ const AboutIcon = () => (
 		/>
 	</svg>
 );
+
 export default function NavBar() {
+	// responsive button styling
 	const buttonstyle =
-		"flex w-full items-center gap-3 rounded-md px-4 py-2 font-source-sans font-medium text-lg text-[#A1A1A1] transition-all duration-200 ease-in-out hover:bg-white/10 hover:text-[#E5C07B] cursor-pointer";
+		"flex w-full items-center gap-3 rounded-md px-4 py-2 font-source-sans font-medium text-sm sm:text-lg text-[#A1A1A1] transition-all duration-200 ease-in-out hover:bg-white/10 hover:text-[#E5C07B] cursor-pointer";
+
 	const { LeftIsHidden } = UseViewContext();
 
-	// animation variants for the text
+	// text animation variants
 	const textVariant = {
 		initial: { opacity: 0, x: -20 },
 		animate: { opacity: 1, x: 0 },
@@ -54,11 +61,13 @@ export default function NavBar() {
 
 	return (
 		<nav className="grid grid-rows-3 gap-2">
+			{/* home button */}
 			<button className={buttonstyle} title="Go to Home">
 				<HomeIcon />
 				<AnimatePresence>
 					{!LeftIsHidden && (
 						<motion.span
+							className="whitespace-nowrap"
 							variants={textVariant}
 							initial="initial"
 							animate="animate"
@@ -70,11 +79,13 @@ export default function NavBar() {
 				</AnimatePresence>
 			</button>
 
+			{/* explore button */}
 			<button className={buttonstyle} title="Explore content">
 				<ExploreIcon />
 				<AnimatePresence>
 					{!LeftIsHidden && (
 						<motion.span
+							className="whitespace-nowrap"
 							variants={textVariant}
 							initial="initial"
 							animate="animate"
@@ -86,11 +97,13 @@ export default function NavBar() {
 				</AnimatePresence>
 			</button>
 
-			<button className={buttonstyle} title="Learn more about sand">
+			{/* about button */}
+			<button className={buttonstyle} title="Learn about sand">
 				<AboutIcon />
 				<AnimatePresence>
 					{!LeftIsHidden && (
 						<motion.span
+							className="whitespace-nowrap"
 							variants={textVariant}
 							initial="initial"
 							animate="animate"
