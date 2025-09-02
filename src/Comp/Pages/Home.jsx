@@ -9,7 +9,6 @@ function Home() {
 			*/}
 			<div className="font-source-sans grid grid-cols-[1fr_3fr_1fr] gap-3 text-[#EAEAEA] mt-1.5">
 				<LeftSide />
-
 				<div className="border-2 border-amber-100">
 					- **Section 2: Sorting Bar** - Options: New | Top | Hot - **Section 3:
 					Post Feed** - Post item: Title, content preview, author, timestamp -

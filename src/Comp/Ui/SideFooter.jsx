@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import formatRelative from "../../lib/date";
 import { motion, AnimatePresence } from "framer-motion";
+import { UseViewContext } from "../../Context/ViewContext";
 
 // icons
 const SettingsIcon = (

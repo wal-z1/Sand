@@ -1,9 +1,7 @@
 import NavBar from "../Header/Navbar";
 import SideFooter from "../Ui/SideFooter";
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 function LeftSide() {
-	const [LeftIsHidden, ToggleLeftHide] = useState(true); //TODO SAVE IN LOCAL STORAGE THIS
 	return (
 		<AnimatePresence>
 			<div className="relative border-r border-[#aa9b6c]">

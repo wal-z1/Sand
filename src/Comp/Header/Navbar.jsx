@@ -1,5 +1,6 @@
 //icons
 import { motion, AnimatePresence } from "framer-motion";
+import { UseViewContext } from "../../Context/ViewContext";
 
 const HomeIcon = () => (
 	<motion.svg
@@ -51,19 +52,19 @@ const AboutIcon = () => (
 export default function NavBar() {
 	const buttonstyle =
 		"flex w-full items-center gap-3 rounded-md px-4 py-2 font-source-sans font-medium text-lg text-[#A1A1A1] transition-all duration-200 ease-in-out hover:bg-white/10 hover:text-[#E5C07B] cursor-pointer";
-
+	const { LeftIsHidden, ToggleLeftHide } = UseViewContext();
 	return (
 		<nav className="grid grid-rows-3 gap-2">
 			<button className={buttonstyle} title="Go to Home">
-				<HomeIcon />
+				{LeftIsHidden && <HomeIcon />}
 				<span>Home</span>
 			</button>
 			<button className={buttonstyle} title="Explore content">
-				<ExploreIcon />
+				{LeftIsHidden && <ExploreIcon />}
 				<span>Explore</span>
 			</button>
 			<button className={buttonstyle} title="Learn more about sand">
-				<AboutIcon />
+				{LeftIsHidden && <AboutIcon />}
 				<span>About</span>
 			</button>
 		</nav>
