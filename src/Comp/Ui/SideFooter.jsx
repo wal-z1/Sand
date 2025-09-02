@@ -104,11 +104,11 @@ export default function SideFooter() {
 			</div>
 
 			{/* Footer info */}
-			<p className="mt-4 px-2 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
-				© 2025 Sand |
-			</p>
-			<p className=" mt-1 mb-2 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
+			<p className=" mt-4 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
 				Last updated: [{CommitDate}]
+			</p>
+			<p className="mt-1 px-2 mb-2 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
+				© 2025 Sand
 			</p>
 		</footer>
 	);
