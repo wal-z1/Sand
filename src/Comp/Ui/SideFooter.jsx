@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 const Date = 2025;
-// use a fetch for the commits 
+// use a fetch for the commits TODO
 
 // icons
 const SettingsIcon = (
@@ -51,21 +51,24 @@ export default function SideFooter() {
 		"flex items-center gap-2 px-2 py-1 font-source-sans text-sm font-medium text-[#A1A1A1] transition-colors duration-200 ease-in-out hover:text-[#E5C07B] text-left";
 
 	return (
-		<footer className="mt-auto px-2 pt-4 ">
+		<footer // vertical center with a bit of padding incase
+			className="mt-auto px-2 pt-4 ">
+			{/*Might need to add  Current user here TODO*/}
 			{/* Divider */}
 			<div className="h-px w-full bg-gradient-to-r from-transparent via-[#C2B280]/50 to-transparent"></div>
 
 			{/* Links */}
-			<div //top space lfex vertical and a small gap
+			<div //top space flex vertical and a small gap
 				className="mt-4 flex flex-col gap-1">
 				<Link // insert icon then text
 					to="/settings"
+					title="Settings"
 					className={linkStyle}>
 					{SettingsIcon}
 					<span>Settings</span>
 				</Link>
 
-				<Link to="/feedbackpage" className={linkStyle}>
+				<Link to="/feedbackpage" title="Feedback Page" className={linkStyle}>
 					{FeedbackIcon}
 					<span>Give Feedback</span>
 				</Link>
