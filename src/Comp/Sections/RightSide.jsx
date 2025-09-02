@@ -1,4 +1,3 @@
-
 function RightSide() {
 	return <div>RightSide</div>;
 }
