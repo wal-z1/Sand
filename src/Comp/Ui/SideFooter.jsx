@@ -56,7 +56,7 @@ export default function SideFooter() {
 			);
 			const data = await res.json();
 			const latestDate = data[0].commit.author.date;
-			console.log(formatRelative(latestDate));
+
 			AssignCommitDate((prev) => formatRelative(latestDate));
 		} catch (err) {
 			console.error(err);
@@ -67,12 +67,13 @@ export default function SideFooter() {
 	useEffect(() => {
 		fetchCommits();
 	}, []);
+	const { LeftIsHidden } = UseViewContext();
 
 	// medium muted text with the gold hover and flex centred with the icon aligned left
 	const linkStyle =
 		"flex items-center gap-2 px-2 py-1 font-source-sans text-sm font-medium text-[#A1A1A1] transition-colors duration-200 ease-in-out hover:text-[#E5C07B] text-left";
 
-	return (
+	return !LeftIsHidden ? (
 		<motion.footer
 			animate={{ opacity: 1, x: 0 }}
 			exit={{ opacity: 0, x: -50 }}
@@ -117,5 +118,5 @@ export default function SideFooter() {
 				© 2025 Sand
 			</p>
 		</motion.footer>
-	);
+	) : null;
 }

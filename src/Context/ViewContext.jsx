@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 const ViewContext = createContext();
 
 export function ViewProvider({ children }) {
-	const [LeftIsHidden, ToggleLeftHide] = useState(true);
+	const [LeftIsHidden, ToggleLeftHide] = useState(false);
 	//TODO SAVE IN LOCAL STORAGE THIS
 	// use context
 	return (
