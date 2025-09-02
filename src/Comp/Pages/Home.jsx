@@ -9,8 +9,6 @@ function Home() {
 	return (
 		<>
 			<motion.div
-				
-		
 				className="font-source-sans grid  gap-3 text-[#EAEAEA] mt-1.5"
 				// animate the grid-cols based on the LeftIsHidden state
 				animate={{
