@@ -1,7 +1,7 @@
 // icons
 import { motion, AnimatePresence } from "framer-motion";
 import { UseViewContext } from "../../Context/ViewContext";
-
+import { Link } from "react-router-dom";
 // home icon svg
 const HomeIcon = () => (
 	<svg
@@ -62,58 +62,64 @@ export default function NavBar() {
 	return (
 		<nav className="grid grid-rows-3 gap-2">
 			{/* home button */}
-			<button className={buttonstyle} title="Go to Home">
-				<HomeIcon />
-				<AnimatePresence>
-					{!LeftIsHidden && (
-						<motion.span
-							className="whitespace-nowrap"
-							variants={textVariant}
-							initial="initial"
-							animate="animate"
-							exit="exit"
-							transition={textVariant.transition}>
-							Home
-						</motion.span>
-					)}
-				</AnimatePresence>
-			</button>
+			<Link to="/" title="Go to Home">
+				<button className={buttonstyle}>
+					<HomeIcon />
+					<AnimatePresence>
+						{!LeftIsHidden && (
+							<motion.span
+								className="whitespace-nowrap"
+								variants={textVariant}
+								initial="initial"
+								animate="animate"
+								exit="exit"
+								transition={textVariant.transition}>
+								Home
+							</motion.span>
+						)}
+					</AnimatePresence>
+				</button>
+			</Link>
 
 			{/* explore button */}
-			<button className={buttonstyle} title="Explore content">
-				<ExploreIcon />
-				<AnimatePresence>
-					{!LeftIsHidden && (
-						<motion.span
-							className="whitespace-nowrap"
-							variants={textVariant}
-							initial="initial"
-							animate="animate"
-							exit="exit"
-							transition={textVariant.transition}>
-							Explore
-						</motion.span>
-					)}
-				</AnimatePresence>
-			</button>
+			<Link to="/explore" title="Explore content">
+				<button className={buttonstyle}>
+					<ExploreIcon />
+					<AnimatePresence>
+						{!LeftIsHidden && (
+							<motion.span
+								className="whitespace-nowrap"
+								variants={textVariant}
+								initial="initial"
+								animate="animate"
+								exit="exit"
+								transition={textVariant.transition}>
+								Explore
+							</motion.span>
+						)}
+					</AnimatePresence>
+				</button>
+			</Link>
 
 			{/* about button */}
-			<button className={buttonstyle} title="Learn about sand">
-				<AboutIcon />
-				<AnimatePresence>
-					{!LeftIsHidden && (
-						<motion.span
-							className="whitespace-nowrap"
-							variants={textVariant}
-							initial="initial"
-							animate="animate"
-							exit="exit"
-							transition={textVariant.transition}>
-							About
-						</motion.span>
-					)}
-				</AnimatePresence>
-			</button>
+			<Link to="/faq" title="Learn about sand">
+				<button className={buttonstyle}>
+					<AboutIcon />
+					<AnimatePresence>
+						{!LeftIsHidden && (
+							<motion.span
+								className="whitespace-nowrap"
+								variants={textVariant}
+								initial="initial"
+								animate="animate"
+								exit="exit"
+								transition={textVariant.transition}>
+								About
+							</motion.span>
+						)}
+					</AnimatePresence>
+				</button>
+			</Link>
 		</nav>
 	);
 }

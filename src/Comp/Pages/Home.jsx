@@ -12,7 +12,9 @@ function Home() {
 			animate={{
 				opacity: 1,
 				// dynamically adjust grid columns based on sidebar state
-				gridTemplateColumns: LeftIsHidden ? "65px 3fr 1fr" : "250px 3fr 1fr",
+				gridTemplateColumns: LeftIsHidden
+					? "65px 3fr 250px"
+					: "250px 3fr 250px",
 			}}
 			// smooth animation for state changes
 			transition={{ duration: 0.44, ease: "easeInOut" }}>
