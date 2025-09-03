@@ -7,7 +7,7 @@ function Home() {
 	const { LeftIsHidden } = UseViewContext();
 	return (
 		<motion.div
-			className="home-grid font-source-sans sm:grid gap-3 text-[#EAEAEA] mt-1.5"
+			className="font-source-sans sm:grid gap-3 text-[#EAEAEA] "
 			initial={{ opacity: 0.97 }}
 			animate={{
 				opacity: 1,
@@ -19,6 +19,7 @@ function Home() {
 			// smooth animation for state changes
 			transition={{ duration: 0.44, ease: "easeInOut" }}>
 			{/* left sidebar section */}
+
 			<LeftSide />
 			{/* main content area */}
 			<main>

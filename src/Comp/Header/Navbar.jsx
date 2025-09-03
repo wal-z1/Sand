@@ -1,8 +1,8 @@
-// icons
+import { NavLink } from "react-router-dom"; // 1. Import NavLink, the correct tool for this job.
 import { motion, AnimatePresence } from "framer-motion";
 import { UseViewContext } from "../../Context/ViewContext";
-import { Link } from "react-router-dom";
-// home icon svg
+
+// --- Icon components (no changes needed) ---
 const HomeIcon = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +14,6 @@ const HomeIcon = () => (
 	</svg>
 );
 
-// explore icon svg
 const ExploreIcon = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +28,6 @@ const ExploreIcon = () => (
 	</svg>
 );
 
-// about icon svg
 const AboutIcon = () => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
@@ -45,81 +43,71 @@ const AboutIcon = () => (
 );
 
 export default function NavBar() {
-	// responsive button styling
-	const buttonstyle =
-		"flex w-full items-center gap-3 rounded-md px-4 py-2 font-source-sans font-medium text-sm sm:text-lg text-[#A1A1A1] transition-all duration-200 ease-in-out hover:bg-white/10 hover:text-[#E5C07B] focus:bg-white/10 focus:text-[#E5C07B] active:bg-white/20 active:text-[#E5C07B] cursor-pointer";
-
 	const { LeftIsHidden } = UseViewContext();
 
-	// text animation variants
+	//  base and active styles for clarity
+	const baseLinkStyle =
+		"flex w-full items-center gap-3 rounded-md px-4 py-2 font-source-sans font-medium text-sm sm:text-lg text-[#A1A1A1] transition-all duration-200 ease-in-out hover:bg-white/10 hover:text-[#E5C07B] cursor-pointer";
+
+	const activeLinkStyle = "bg-white/5 text-white ";
+
 	const textVariant = {
 		initial: { opacity: 0 },
-		animate: { opacity: 1, x: 0 },
+		animate: { opacity: 1 },
 		exit: { opacity: 0 },
-		transition: { duration: 0.3, ease: "easeInOut" },
+		transition: { duration: 0.2, ease: "easeInOut" },
 	};
 
 	return (
 		<nav className="grid grid-rows-3 gap-2">
-			{/* home button */}
-			<Link to="/" title="Go to Home">
-				<button className={buttonstyle}>
-					<HomeIcon />
-					<AnimatePresence>
-						{!LeftIsHidden && (
-							<motion.span
-								className="whitespace-nowrap"
-								variants={textVariant}
-								initial="initial"
-								animate="animate"
-								exit="exit"
-								transition={textVariant.transition}>
-								Home
-							</motion.span>
-						)}
-					</AnimatePresence>
-				</button>
-			</Link>
+			<NavLink
+				to="/"
+				title="Go to Home"
+				//  NavLink's className prop accepts a function to apply styles
+				className={({ isActive }) =>
+					`${baseLinkStyle} ${isActive ? activeLinkStyle : ""}`
+				}>
+				<HomeIcon />
+				<AnimatePresence>
+					{!LeftIsHidden && (
+						<motion.span className="whitespace-nowrap" {...textVariant}>
+							Home
+						</motion.span>
+					)}
+				</AnimatePresence>
+			</NavLink>
 
-			{/* explore button */}
-			<Link to="/explore" title="Explore content">
-				<button className={buttonstyle}>
-					<ExploreIcon />
-					<AnimatePresence>
-						{!LeftIsHidden && (
-							<motion.span
-								className="whitespace-nowrap"
-								variants={textVariant}
-								initial="initial"
-								animate="animate"
-								exit="exit"
-								transition={textVariant.transition}>
-								Explore
-							</motion.span>
-						)}
-					</AnimatePresence>
-				</button>
-			</Link>
+			<NavLink
+				to="/explore"
+				title="Explore content"
+				className={({ isActive }) =>
+					`${baseLinkStyle} ${isActive ? activeLinkStyle : ""}`
+				}>
+				<ExploreIcon />
+				<AnimatePresence>
+					{!LeftIsHidden && (
+						<motion.span className="whitespace-nowrap" {...textVariant}>
+							Explore
+						</motion.span>
+					)}
+				</AnimatePresence>
+			</NavLink>
 
-			{/* about button */}
-			<Link to="/faq" title="Learn about sand">
-				<button className={buttonstyle}>
-					<AboutIcon />
-					<AnimatePresence>
-						{!LeftIsHidden && (
-							<motion.span
-								className="whitespace-nowrap"
-								variants={textVariant}
-								initial="initial"
-								animate="animate"
-								exit="exit"
-								transition={textVariant.transition}>
-								About
-							</motion.span>
-						)}
-					</AnimatePresence>
-				</button>
-			</Link>
+			<NavLink
+				to="/about"
+				title="Learn about Sand"
+				className={({ isActive }) =>
+					`${baseLinkStyle} ${isActive ? activeLinkStyle : ""}`
+				}>
+				<AboutIcon />
+				<AnimatePresence>
+					{!LeftIsHidden && (
+						<motion.span className="whitespace-nowrap" {...textVariant}>
+							About
+						</motion.span>
+					)}
+				</AnimatePresence>
+			</NavLink>
 		</nav>
 	);
 }

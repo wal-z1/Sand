@@ -9,9 +9,7 @@ function LeftSide() {
 	return (
 		<>
 			{/* desktop / tablet sidebar */}
-			<aside
-				className="hidden sm:flex flex-col sticky top-18 border-r border-[#aa9b6c] bg-[#0f0f0f]"
-				style={{ height: "calc(100vh - 5rem)" }}>
+			<aside className="hidden  sm:flex flex-col sticky top-16 h-[calc(100vh-4.2rem)] border-r border-[#aa9b6c] bg-[#0f0f0f]">
 				{/* toggle button */}
 				<button
 					onClick={() => ToggleLeftHide((prev) => !prev)}
@@ -34,7 +32,7 @@ function LeftSide() {
 								animate={{ opacity: 1, x: 0 }}
 								exit={{ opacity: 0 }}
 								transition={{ duration: 0.35, ease: "easeInOut" }}>
-								<h3 className="pl-1.5 pr-0.5 pb-2 font-sora text-sm font-semibold uppercase tracking-widest text-[#A1A1A1]/50">
+								<h3 className="pl-1.5 pr-0.5 pb-2 font-sora text-sm font-semibold uppercase tracking-widest text-[#A1A1A1]/50 mt-1.5">
 									navigation
 								</h3>
 								<span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#C2B280]" />
@@ -52,10 +50,8 @@ function LeftSide() {
 							</motion.div>
 						)}
 					</AnimatePresence>
-
 					<NavBar />
 				</div>
-
 				<SideFooter />
 			</aside>
 
