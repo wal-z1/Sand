@@ -9,7 +9,9 @@ function LeftSide() {
 	return (
 		<>
 			{/* desktop / tablet sidebar */}
-			<aside className="hidden sm:flex flex-col relative border-r border-[#aa9b6c]">
+			<aside
+				className="hidden sm:flex flex-col sticky top-18 border-r border-[#aa9b6c] bg-[#0f0f0f]"
+				style={{ height: "calc(100vh - 5rem)" }}>
 				{/* toggle button */}
 				<button
 					onClick={() => ToggleLeftHide((prev) => !prev)}

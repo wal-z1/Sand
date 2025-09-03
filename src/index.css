@@ -5,9 +5,21 @@
 	--font-source-sans: "Source Sans 3", sans-serif; /*text font*/
 	--font-ibm-mono: "IBM Plex Mono", monospace; /*META FONT*/
 }
+/*resets*/
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	background-color: #0f0f0f;
+}
 
 #root {
-	background-color: #0f0f0f;
-	height: 100vh;
-	width: 100vw;
+	min-height: 100vh; /* Use min-height to allow content to grow taller */
+	/*  mobile browser compatibility */
+	min-height: 100dvh;
 }

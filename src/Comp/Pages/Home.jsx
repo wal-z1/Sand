@@ -9,7 +9,7 @@ function Home() {
 
 	return (
 		<motion.div
-			className="home-grid font-source-sans grid gap-3 text-[#EAEAEA] mt-1.5"
+			className="home-grid font-source-sans sm:grid gap-3 text-[#EAEAEA] mt-1.5"
 			initial={{ opacity: 0.97 }}
 			animate={{
 				opacity: 1,
