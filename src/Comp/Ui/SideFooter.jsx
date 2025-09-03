@@ -32,11 +32,8 @@ const FeedbackIcon = () => (
 // motion-wrapped link elements wont work with normal motion.element
 const MotionLink = motion(Link);
 
-
 export default function SideFooter() {
-
 	const [CommitDate, AssignCommitDate] = useState("Loading...");
-
 
 	async function fetchCommits() {
 		try {
@@ -59,8 +56,9 @@ export default function SideFooter() {
 	const { LeftIsHidden } = UseViewContext();
 
 	// link styling
-	const linkStyle =
-		"flex items-center gap-2 px-2 py-1 font-source-sans text-sm font-medium text-[#A1A1A1] transition-colors duration-200 ease-in-out hover:text-[#E5C07B] text-left whitespace-nowrap";
+const linkStyle =
+  "flex items-center gap-2 px-2 py-1 font-source-sans text-sm font-medium text-[#A1A1A1] transition-colors duration-200 ease-in-out hover:text-[#E5C07B] focus:text-[#E5C07B] active:text-[#E5C07B] text-left whitespace-nowrap";
+
 
 	// text animation variants
 	const textAnimation = {
@@ -78,7 +76,6 @@ export default function SideFooter() {
 			<div className="h-px w-full bg-gradient-to-r from-transparent via-[#C2B280]/50 to-transparent" />
 
 			<div className="mt-4 flex flex-col gap-1">
-
 				<MotionLink
 					to="/settings"
 					title="Settings"
@@ -101,7 +98,6 @@ export default function SideFooter() {
 					</AnimatePresence>
 				</MotionLink>
 
-
 				<MotionLink
 					to="/feedbackpage"
 					title="Feedback Page"
@@ -123,7 +119,6 @@ export default function SideFooter() {
 						)}
 					</AnimatePresence>
 				</MotionLink>
-
 
 				<motion.a
 					href="https://github.com/wal-z1/Sand"

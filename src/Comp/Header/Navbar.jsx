@@ -47,7 +47,7 @@ const AboutIcon = () => (
 export default function NavBar() {
 	// responsive button styling
 	const buttonstyle =
-		"flex w-full items-center gap-3 rounded-md px-4 py-2 font-source-sans font-medium text-sm sm:text-lg text-[#A1A1A1] transition-all duration-200 ease-in-out hover:bg-white/10 hover:text-[#E5C07B] cursor-pointer";
+		"flex w-full items-center gap-3 rounded-md px-4 py-2 font-source-sans font-medium text-sm sm:text-lg text-[#A1A1A1] transition-all duration-200 ease-in-out hover:bg-white/10 hover:text-[#E5C07B] focus:bg-white/10 focus:text-[#E5C07B] active:bg-white/20 active:text-[#E5C07B] cursor-pointer";
 
 	const { LeftIsHidden } = UseViewContext();
 
