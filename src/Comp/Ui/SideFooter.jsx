@@ -14,37 +14,19 @@ const SettingsIcon = (
 );
 
 const CodeIcon = (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		fill="none"
-		viewBox="0 0 24 24"
-		strokeWidth={1.5}
-		stroke="currentColor"
+	<img
+		src="https://img.icons8.com/?size=100&id=sGQ4JZXIk7ES&format=png&color=ffffff"
+		alt="FeedBack"
 		className="h-4 w-4"
-		title="Source Code">
-		<path
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
-		/>
-	</svg>
+	/>
 );
 
 const FeedbackIcon = (
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		fill="none"
-		viewBox="0 0 24 24"
-		strokeWidth={1.5}
-		stroke="currentColor"
+	<img
+		src="https://img.icons8.com/?size=100&id=143&format=png&color=ffffff"
+		alt="FeedBack"
 		className="h-4 w-4"
-		title="Give Feedback">
-		<path
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.006 3 11.55c0 2.252.992 4.31 2.616 5.765L4 21l5.742-1.848A9.003 9.003 0 0012 20.25z"
-		/>
-	</svg>
+	/>
 );
 
 export default function SideFooter() {
@@ -71,15 +53,15 @@ export default function SideFooter() {
 
 	// medium muted text with the gold hover and flex centred with the icon aligned left
 	const linkStyle =
-		"flex items-center gap-2 px-2 py-1 font-source-sans text-sm font-medium text-[#A1A1A1] transition-colors duration-200 ease-in-out hover:text-[#E5C07B] text-left";
+		"flex items-center gap-2 px-2 py-1 font-source-sans text-sm font-medium text-[#A1A1A1] transition-colors duration-200 ease-in-out hover:text-[#E5C07B] text-left whitespace-nowrap";
 
 	return (
 		<AnimatePresence>
 			{!LeftIsHidden ? (
 				<motion.footer
 					animate={{ opacity: 1, x: 0 }}
-					exit={{ opacity: 0, y: 50 }}
-					transition={{ duration: 0.3, ease: "easeInOut" }}
+					exit={{ opacity: 0 }}
+					transition={{ duration: 0.2, ease: "easeInOut" }}
 					// vertical center with a bit of padding incase
 					className="mt-auto px-2 pt-4 ">
 					{/*
@@ -118,10 +100,10 @@ export default function SideFooter() {
 					</div>
 
 					{/* Footer info */}
-					<p className=" mt-4 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
+					<p className="whitespace-nowrap mt-4 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
 						Last updated: [{CommitDate}]
 					</p>
-					<p className="mt-1 px-2 mb-2 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
+					<p className="whitespace-nowrap mt-1 px-2 mb-2 text-left font-ibm-mono text-xs text-[#A1A1A1]/40">
 						© 2025 Sand
 					</p>
 				</motion.footer>

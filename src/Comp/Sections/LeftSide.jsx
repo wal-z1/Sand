@@ -26,13 +26,24 @@ function LeftSide() {
 				{/* sidebar content */}
 				<div className="flex flex-col pr-2">
 					<AnimatePresence>
-						{!LeftIsHidden && (
+						{!LeftIsHidden ? (
 							<motion.div
 								className="flex items-center"
 								animate={{ opacity: 1, x: 0 }}
-								exit={{ opacity: 0, x: -50 }}
-								transition={{ duration: 0.3, ease: "easeInOut" }}>
+								exit={{ opacity: 0 }}
+								transition={{ duration: 0.35, ease: "easeInOut" }}>
 								<h3 className="pl-1.5 pr-0.5 pb-2 font-sora text-sm font-semibold uppercase tracking-widest text-[#A1A1A1]/50">
+									navigation
+								</h3>
+								<span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#C2B280]" />
+							</motion.div>
+						) : (
+							<motion.div
+								className="flex items-center"
+								initial={{ opacity: 1 }}
+								animate={{ opacity: 0 }}
+								transition={{ duration: 0.35, ease: "easeInOut" }}>
+								<h3 className="pl-1.5 pr-0.5 pb-2 font-sora text-sm font-semibold uppercase tracking-widest text-[#A1A1A1]/50 ">
 									navigation
 								</h3>
 								<span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#C2B280]" />
@@ -70,7 +81,7 @@ function LeftSide() {
 							initial={{ x: "-100%" }}
 							animate={{ x: 0 }}
 							exit={{ x: "-100%" }}
-							transition={{ type: "spring", stiffness: 300, damping: 30 }}>
+							transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}>
 							{/* close button */}
 							<button
 								onClick={() => ToggleLeftHide(true)}

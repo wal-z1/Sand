@@ -17,7 +17,7 @@ function Home() {
 				gridTemplateColumns: LeftIsHidden ? "65px 3fr 1fr" : "250px 3fr 1fr",
 			}}
 			// smooth animation for state changes
-			transition={{ duration: 0.25, ease: "easeInOut" }}>
+			transition={{ duration: 0.44, ease: "easeInOut" }}>
 			{/* left sidebar section */}
 			<LeftSide />
 
