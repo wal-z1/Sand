@@ -15,10 +15,10 @@ function LeftSide() {
 				{/* toggle button */}
 				<button
 					onClick={() => ToggleLeftHide((prev) => !prev)}
-					className="absolute right-0 top-1/2 z-10 -translate-y-1/2 translate-x-1/2 cursor-pointer rounded-full border border-[#C2B280] bg-[#1a1a1a] py-3 transition hover:bg-[#282424] hover:text-[#E5C07B]"
+					className="absolute right-0 top-1/2 z-10 -translate-y-1/2 translate-x-1/2 cursor-pointer rounded-full border border-[#C2B280] bg-[#1a1a1a] w-6 h-10 flex items-center justify-center transition hover:bg-[#282424] hover:text-[#E5C07B]"
 					title={LeftIsHidden ? "Expand sidebar" : "Collapse sidebar"}>
 					<motion.span
-						className="block h-4 w-4 text-[#C2B280]"
+						className="text-lg leading-none text-[#C2B280]"
 						animate={{ rotate: LeftIsHidden ? 180 : 0 }}
 						transition={{ duration: 0.2 }}>
 						‹
