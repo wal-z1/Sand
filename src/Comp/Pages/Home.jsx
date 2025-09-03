@@ -3,10 +3,8 @@ import MainSection from "../Sections/MainSection";
 import LeftSide from "../Sections/LeftSide";
 import { UseViewContext } from "../../Context/ViewContext";
 import { motion } from "framer-motion";
-
 function Home() {
 	const { LeftIsHidden } = UseViewContext();
-
 	return (
 		<motion.div
 			className="home-grid font-source-sans sm:grid gap-3 text-[#EAEAEA] mt-1.5"
@@ -20,12 +18,10 @@ function Home() {
 			transition={{ duration: 0.44, ease: "easeInOut" }}>
 			{/* left sidebar section */}
 			<LeftSide />
-
 			{/* main content area */}
 			<main>
 				<MainSection />
 			</main>
-
 			{/* right sidebar - hidden on mobile */}
 			<aside className="hidden sm:block">
 				<RightSide />
