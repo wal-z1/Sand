@@ -1,6 +1,6 @@
 import RightSide from "../Sections/RightSide";
 import MainSection from "../Sections/MainSection";
-import LeftSide from "../Sections/LeftSide";
+import LeftSide from "../Sections/LeftSide/LeftSide";
 import { UseViewContext } from "../../Context/ViewContext";
 import { motion } from "framer-motion";
 

@@ -1,21 +1,22 @@
-import PostActions from "./PostActions";
+import PostActions from "./PostActions/PostActions";
+import { useState } from "react";
 const dummyPostData = {
 	id: "p1",
 	author: {
 		name: "Alex Martinez",
 		avatarUrl: "https://i.pravatar.cc/150?u=alexmartinez",
 	},
-	timestamp: "2023-10-27T10:30:00Z", // ISO format
+	timestamp: "2023-10-27T10:30:00Z",
 	title: "Exploring the Dunes at Sunrise",
-	body: "There is something truly magical about the way the light hits the sand in the early morning. The colors are just breathtaking. Highly recommend a trip if you ever get the chance!",
+	body: "There is something truly magical about the way the light hits the sand...",
 	media: {
-		type: "image", // could also be 'video' later
-		url: "https://images.unsplash.com/photo-1616272963049-da2d8efc0c57?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		type: "image",
+		url: "https://images.unsplash.com/photo-1616272963049-da2d8efc0c57",
 	},
-	// interaction data is in here so PostActions can consume it directly
 	ups: 1247,
 	downs: 32,
-	comments: [
+	comments: 2,
+	commentObjects: [
 		{
 			id: "c1",
 			user: "Jane",
@@ -29,17 +30,36 @@ const dummyPostData = {
 			timestamp: "2023-10-27T11:15:00Z",
 		},
 	],
+	isUpvoted: true, //  toggle these in logic and use usestate
+	isDownvoted: false,
+	isCommenting: false,
 };
 
 function PostCard() {
+	const [post, setPost] = useState(dummyPostData);
+	const handleUpvote = () => {
+		setPost((prev) => ({
+			...prev,
+			isUpvoted: !prev.isUpvoted,
+			isDownvoted: false, // always clear downvote when toggling up
+		}));
+	};
+
+	const handleDownvote = () => {
+		setPost((prev) => ({
+			...prev,
+			isDownvoted: !prev.isDownvoted,
+			isUpvoted: false, // always clear upvote when toggling down
+		}));
+	};
+
 	return (
 		<div>
-			PostCard
 			<PostActions
-				post={dummyPostData}
-				FunUp={console.log("UP")}
-				FunDown={console.log("down")}
-				onCommentClick={console.log("Trigger Comment")}
+				post={post}
+				FunUp={handleUpvote}
+				FunDown={handleDownvote}
+				onCommentClick={() => console.log("Trigger Comment")}
 			/>
 		</div>
 	);

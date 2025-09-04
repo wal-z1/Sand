@@ -1,7 +1,7 @@
-import NavBar from "../Header/Navbar";
-import SideFooter from "../Ui/SideFooter";
+import NavBar from "../../Header/Navbar";
+import SideFooter from "../../Ui/SideFooter";
 import { AnimatePresence, motion } from "framer-motion";
-import { UseViewContext } from "../../Context/ViewContext";
+import { UseViewContext } from "../../../Context/ViewContext";
 
 function LeftSide() {
 	const { LeftIsHidden, ToggleLeftHide } = UseViewContext();
