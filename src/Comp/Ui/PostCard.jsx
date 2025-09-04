@@ -1,4 +1,4 @@
-const PostData = {
+const dummyPostData = {
 	id: "p1",
 	author: {
 		name: "Alex Martinez",
@@ -8,14 +8,12 @@ const PostData = {
 	title: "Exploring the Dunes at Sunrise",
 	body: "There is something truly magical about the way the light hits the sand in the early morning. The colors are just breathtaking. Highly recommend a trip if you ever get the chance!",
 	media: {
-		type: "image",
+		type: "image", // could also be 'video' later
 		url: "https://images.unsplash.com/photo-1616272963049-da2d8efc0c57?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 	},
-};
-const PostInteractions = {
-	postId: "p1", // for what post ?
-	upvotes: 1247,
-	downvotes: 32,
+	// interaction data is in here so PostActions can consume it directly
+	ups: 1247,
+	downs: 32,
 	comments: [
 		{
 			id: "c1",
