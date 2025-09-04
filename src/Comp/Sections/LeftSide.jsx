@@ -79,7 +79,7 @@ function LeftSide() {
 							initial={{ x: "-100%" }}
 							animate={{ x: 0 }}
 							exit={{ x: "-100%" }}
-							transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}>
+							transition={{ type: "tween", duration: 0.2, ease: "easeOut" }}>
 							{/* close button */}
 							<button
 								onClick={() => ToggleLeftHide(true)}

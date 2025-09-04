@@ -7,14 +7,14 @@ export default function Header() {
 
 	return (
 		// header container with sticky top and backdrop effects
-		<header className="sticky top-0 z-50 border-b border-[#C2B280]/40 bg-[#0f0f0f]/50 backdrop-blur-lg backdrop-saturate-150">
-			<div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-4 sm:px-6 lg:px-8">
+		<header className="sticky top-0 z-50 border-b border-[#C2B280]/40 bg-[#0f0f0f]/50 backdrop-blur-lg backdrop-saturate-150 supports-[backdrop-filter]:backdrop-blur-lg shadow-md">
+			<div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-3 sm:px-6 lg:px-8">
 				{/* left section: hamburger menu + logo */}
 				<div className="flex items-center gap-3">
 					{/* mobile hamburger button */}
 					<button
 						onClick={() => ToggleLeftHide((prev) => !prev)}
-						className="sm:hidden inline-flex items-center justify-center rounded-md p-2 text-[#C2B280] hover:bg-white/5"
+						className="sm:hidden inline-flex items-center justify-center rounded-md p-2 text-[#C2B280] hover:bg-white/5 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#C2B280]/50 transition"
 						aria-label={LeftIsHidden ? "Open menu" : "Close menu"}
 						title={LeftIsHidden ? "Open menu" : "Close menu"}>
 						{/* toggle icon */}
@@ -48,19 +48,20 @@ export default function Header() {
 							</svg>
 						)}
 					</button>
+
 					{/* logo link */}
 					<Link
 						to="/"
-						//  reduced the gap slightly to make the logo and text feel like a single unit
-						className="-ml-2 flex items-center gap-2 filter transition duration-500 ease-in-out hover:brightness-125">
+						// reduced the gap slightly to make the logo and text feel like a single unit
+						className="-ml-1 flex items-center gap-2 sm:gap-3 filter transition duration-300 ease-in-out hover:brightness-125 active:scale-95">
 						<img
 							src="/logo.png"
 							alt="Sand Logo"
-							className="h-10 w-auto drop-shadow-[0_0_4px_#c2b2806c]"
+							className="h-9 sm:h-10 w-auto drop-shadow-[0_0_4px_#c2b2806c]"
 						/>
 						<span
-							// increased text size and applied the 'Sora' header font
-							className="font-sora text-2xl font-extrabold text-[#EAEAEA] transition-colors duration-500 ease-in-out hover:text-white">
+			
+							className="font-sora text-xl sm:text-2xl font-extrabold text-[#EAEAEA] transition-colors duration-300 ease-in-out hover:text-white">
 							Sand
 						</span>
 					</Link>
