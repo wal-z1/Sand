@@ -2,7 +2,7 @@ import PostActions from "./PostActions/PostActions";
 import { useState } from "react";
 // data porpuse is testing in this case
 import dummyPostData from "../../lib/dummyPostData";
-
+import formatRelative from "../../lib/date";
 function PostCard() {
 	const [post, setPost] = useState(dummyPostData); //for now
 	const handleUpvote = () => {
@@ -28,13 +28,24 @@ function PostCard() {
 			<div
 				//actual post
 				className=" ">
-				<span
-					className=" font-source-sans leading-relaxed font-medium "
-					//what author + post date
+				<div
+					className=" flex justify-between"
+					//flex on icon and text of author
 				>
-					{" "}
-					{dummyPostData.author}{" "}
-				</span>
+					<img
+						src={dummyPostData.author.avatarUrl}
+						className="h-14 w-14 object-cover rounded-2xl  border-2 border-[#2A2A2A] "></img>
+					<span
+						className=" font-source-sans leading-relaxed font-medium "
+						//what author + post date
+					>
+						{dummyPostData.author.name}
+						<span className="text-[#EAEAEA] px-2">&middot;</span>
+						<span className=" cursor-help" title={dummyPostData.timestamp}>
+							{formatRelative(dummyPostData.timestamp)}
+						</span>
+					</span>
+				</div>
 			</div>
 			<PostActions
 				post={post}
