@@ -1,3 +1,4 @@
+import PostActions from "./PostActions";
 const dummyPostData = {
 	id: "p1",
 	author: {
@@ -31,7 +32,17 @@ const dummyPostData = {
 };
 
 function PostCard() {
-	return <div>PostCard</div>;
+	return (
+		<div>
+			PostCard
+			<PostActions
+				post={dummyPostData}
+				FunUp={console.log("UP")}
+				FunDown={console.log("down")}
+				onCommentClick={console.log("Trigger Comment")}
+			/>
+		</div>
+	);
 }
 
 export default PostCard;
