@@ -13,8 +13,9 @@ function MainSection() {
 			</span>
 			<div>
 				{/*Posts container*/}
-				<div>{/*a post*/}
-					<PostCard/>
+				<div>
+					{/*a post*/}
+					<PostCard />
 				</div>
 			</div>
 		</div>
