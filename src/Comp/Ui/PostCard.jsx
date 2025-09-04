@@ -25,15 +25,17 @@ function PostCard() {
 
 	return (
 		<div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg p-3 sm:p-4 flex flex-col gap-4 transition-colors duration-200 hover:border-[#C2B280]/50">
-			{/* Post Header: Author Info */}
+			{/* post header author info + date posted*/}
 			<div className="flex items-center gap-3">
+				{/*AVATAR*/}
 				<img
 					src={dummyPostData.author.avatarUrl}
-					className="h-10 w-10 sm:h-12 sm:w-12 object-cover rounded-lg border-2 border-[#2A2A2A]"
+					className="h-10 w-10 sm:h-12 sm:w-12 object-cover rounded-lg cursor-pointer border-2 border-[#2A2A2A]"
 					alt={`${dummyPostData.author.name}'s avatar`}
 				/>
+				{/*name + date*/}
 				<div className="flex flex-col">
-					<span className="font-source-sans font-semibold text-[#EAEAEA] cursor-pointer hover:text-[#C2B280] transition-colors">
+					<span className="font-source-sans font-semibold text-[#EAEAEA] cursor-pointer hover:text-[#C2B280] transition-colors ">
 						{dummyPostData.author.name}
 					</span>
 					<span
@@ -44,7 +46,7 @@ function PostCard() {
 				</div>
 			</div>
 
-			{/* Post Content: Title, Body, and Media */}
+			{/* content: title, body, and media */}
 			<div className="flex flex-col gap-2">
 				<h2 className="font-sora font-bold text-lg sm:text-xl text-[#EAEAEA]">
 					{dummyPostData.title}
@@ -55,7 +57,7 @@ function PostCard() {
 				<MediaRenderer media={dummyPostData.media} />
 			</div>
 
-			{/* Divider */}
+			{/* divider */}
 			<hr className="w-full border-t border-[#2A2A2A]" />
 
 			{/* Post Actions */}
