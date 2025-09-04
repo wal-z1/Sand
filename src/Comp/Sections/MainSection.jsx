@@ -1,4 +1,6 @@
 import SortButtonsGroups from "../Ui/SortButtonsGroups";
+import PostCard from "../Ui/PostCard";
+import PostActions from "../Ui/PostActions";
 function MainSection() {
 	return (
 		<div className="mt-1.5">
@@ -9,6 +11,13 @@ function MainSection() {
 				<span className="shrink-0 pe-4 text-[#EAEAEA] font-sora">Feed</span>
 				<span className="h-[1px] flex-1 bg-gradient-to-l from-[#e1e4cc] to-[#C2B280]"></span>
 			</span>
+			<div>
+				{/*Posts container*/}
+				<div>
+					{/*a post*/}
+					<div>{/*the actions group*/}</div>
+				</div>
+			</div>
 		</div>
 	);
 }
