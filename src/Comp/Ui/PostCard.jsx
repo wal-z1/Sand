@@ -4,13 +4,14 @@ import { useState } from "react";
 import dummyPostData from "../../lib/dummyPostData";
 import formatRelative from "../../lib/date";
 import MediaRenderer from "../../lib/MediaRender";
+
 function PostCard() {
 	const [post, setPost] = useState(dummyPostData); //for now
 	const handleUpvote = () => {
 		setPost((prev) => ({
 			...prev,
 			isUpvoted: !prev.isUpvoted,
-			isDownvoted: false, // always clear downvote when toggling up
+			isDownvoted: false,
 		}));
 	};
 
@@ -18,49 +19,46 @@ function PostCard() {
 		setPost((prev) => ({
 			...prev,
 			isDownvoted: !prev.isDownvoted,
-			isUpvoted: false, // always clear upvote when toggling down
+			isUpvoted: false,
 		}));
 	};
 
 	return (
-		<div
-			// post + its actions
-			className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg p-4 h-fit mt-1.5 flex flex-col">
-			<div
-				className=" flex justify-start flex-col gap-2 "
-				//actual post
-			>
-				<div
-					className=" flex justify-start gap-2.5 "
-					//flex on icon and text of author
-				>
-					<img
-						src={dummyPostData.author.avatarUrl}
-						className="h-14 w-14 object-cover rounded-2xl  border-2 border-[#2A2A2A] "></img>
-					<span
-						className=" font-source-sans leading-relaxed font-medium text-md "
-						//what author + post date
-					>
+		<div className="bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg p-3 sm:p-4 flex flex-col gap-4 transition-colors duration-200 hover:border-[#C2B280]/50">
+			{/* Post Header: Author Info */}
+			<div className="flex items-center gap-3">
+				<img
+					src={dummyPostData.author.avatarUrl}
+					className="h-10 w-10 sm:h-12 sm:w-12 object-cover rounded-lg border-2 border-[#2A2A2A]"
+					alt={`${dummyPostData.author.name}'s avatar`}
+				/>
+				<div className="flex flex-col">
+					<span className="font-source-sans font-semibold text-[#EAEAEA] cursor-pointer hover:text-[#C2B280] transition-colors">
 						{dummyPostData.author.name}
-						<span className="text-[#EAEAEA] px-2">&middot;</span>
-						<span className=" cursor-help" title={dummyPostData.timestamp}>
-							{formatRelative(dummyPostData.timestamp)}
-						</span>
 					</span>
-				</div>
-				<div
-					className="flex justify-start flex-col gap-1 m-2"
-					// text + media
-				>
-					<span className="font-sora leading-relaxed text-xl ">
-						{dummyPostData.title}
+					<span
+						className="font-ibm-mono text-xs text-[#A1A1A1] cursor-help"
+						title={new Date(dummyPostData.timestamp).toLocaleString()}>
+						{formatRelative(dummyPostData.timestamp)}
 					</span>
-					<span className="font-source-sans leading-relaxed text-lg ">
-						{dummyPostData.body}
-					</span>
-					<MediaRenderer media={dummyPostData.media} />
 				</div>
 			</div>
+
+			{/* Post Content: Title, Body, and Media */}
+			<div className="flex flex-col gap-2">
+				<h2 className="font-sora font-bold text-lg sm:text-xl text-[#EAEAEA]">
+					{dummyPostData.title}
+				</h2>
+				<p className="font-source-sans text-sm sm:text-base text-[#A1A1A1] leading-relaxed">
+					{dummyPostData.body}
+				</p>
+				<MediaRenderer media={dummyPostData.media} />
+			</div>
+
+			{/* Divider */}
+			<hr className="w-full border-t border-[#2A2A2A]" />
+
+			{/* Post Actions */}
 			<PostActions
 				post={post}
 				FunUp={handleUpvote}
