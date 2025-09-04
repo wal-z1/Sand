@@ -16,7 +16,7 @@ const ActionButton = ({ icon, count, onClick, label }) => {
 	);
 };
 
-const PostActions = ({ post, FunUp, FunDown, onCommentClick }) => {
+function PostActions({ post, FunUp, FunDown, onCommentClick }) {
 	// if data exists take it from the post other than that set to zero
 	const postData = post || { ups: 0, downs: 0, comments: 0 };
 
@@ -50,6 +50,6 @@ const PostActions = ({ post, FunUp, FunDown, onCommentClick }) => {
 			/>
 		</div>
 	);
-};
+}
 
 export default PostActions;
