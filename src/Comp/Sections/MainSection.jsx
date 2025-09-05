@@ -1,6 +1,6 @@
 import SortButtonsGroups from "../Ui/SortButtonsGroups";
 import PostCard from "../Ui/PostCard";
-
+import dummyPostData from "../../lib/dummyPostData";
 function MainSection() {
 	return (
 		<div className="mt-1.5">
@@ -15,7 +15,7 @@ function MainSection() {
 				{/*Posts container*/}
 				<div>
 					{/*a post*/}
-					<PostCard />
+					<PostCard post={dummyPostData} />
 				</div>
 			</div>
 		</div>

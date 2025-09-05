@@ -1,12 +1,11 @@
 import PostActions from "./PostActions/PostActions";
 import { useState } from "react";
-// data porpuse is testing in this case
-import dummyPostData from "../../lib/dummyPostData";
 import formatRelative from "../../lib/date";
 import MediaRenderer from "../../lib/MediaRender";
 
-function PostCard() {
-	const [post, setPost] = useState(dummyPostData); //for now
+function PostCard({ post: initialPost }) {
+	const [post, setPost] = useState(initialPost); // take from outside now
+
 	const handleUpvote = () => {
 		setPost((prev) => ({
 			...prev,
@@ -29,19 +28,19 @@ function PostCard() {
 			<div className="flex items-center gap-3">
 				{/*AVATAR*/}
 				<img
-					src={dummyPostData.author.avatarUrl}
+					src={post.author.avatarUrl}
 					className="h-10 w-10 sm:h-12 sm:w-12 object-cover rounded-lg cursor-pointer border-2 border-[#2A2A2A]"
-					alt={`${dummyPostData.author.name}'s avatar`}
+					alt={`${post.author.name}'s avatar`}
 				/>
 				{/*name + date*/}
 				<div className="flex flex-col">
 					<span className="font-source-sans font-semibold text-[#EAEAEA] cursor-pointer hover:text-[#C2B280] transition-colors ">
-						{dummyPostData.author.name}
+						{post.author.name}
 					</span>
 					<span
 						className="font-ibm-mono text-xs text-[#A1A1A1] cursor-help"
-						title={new Date(dummyPostData.timestamp).toLocaleString()}>
-						{formatRelative(dummyPostData.timestamp)}
+						title={new Date(post.timestamp).toLocaleString()}>
+						{formatRelative(post.timestamp)}
 					</span>
 				</div>
 			</div>
@@ -49,12 +48,12 @@ function PostCard() {
 			{/* content: title, body, and media */}
 			<div className="flex flex-col gap-2">
 				<h2 className="font-sora font-bold text-lg sm:text-xl text-[#EAEAEA]">
-					{dummyPostData.title}
+					{post.title}
 				</h2>
 				<p className="font-source-sans text-sm sm:text-base text-[#A1A1A1] leading-relaxed">
-					{dummyPostData.body}
+					{post.body}
 				</p>
-				<MediaRenderer media={dummyPostData.media} />
+				<MediaRenderer media={post.media} />
 			</div>
 
 			{/* divider */}
