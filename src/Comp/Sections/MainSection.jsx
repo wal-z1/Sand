@@ -1,7 +1,7 @@
 import SortButtonsGroups from "../Ui/SortButtonsGroups";
 import PostCard from "../Ui/PostCard";
 import dummyPostData from "../../lib/dummyPostData";
-
+import AllPostContainer from "../Ui/AllPostContainer";
 function MainSection() {
 	return (
 		<div className="mt-1.5">
@@ -13,11 +13,13 @@ function MainSection() {
 				<span className="h-[1px] flex-1 bg-gradient-to-l from-[#e1e4cc] to-[#C2B280]"></span>
 			</span>
 			<div>
-				{/*Posts container*/}
-				<div>
+				<AllPostContainer>
 					{/*a post*/}
 					<PostCard post={dummyPostData} />
-				</div>
+					<PostCard post={dummyPostData} />
+					<PostCard post={dummyPostData} />
+					<PostCard post={dummyPostData} />
+				</AllPostContainer>
 			</div>
 		</div>
 	);
