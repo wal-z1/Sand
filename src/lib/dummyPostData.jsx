@@ -1,37 +1,165 @@
-import { useState } from "react";
-const dummyPostData = {
-	id: "p1",
-	author: {
-		name: "Alex Martinez",
-		avatarUrl: "https://i.pravatar.cc/150?u=alexmartinez",
-	},
-	timestamp: "2023-10-27T10:30:00Z",
-	title: "Exploring the Dunes at Sunrise",
-	body: "There is something truly magical about the way the light hits the sand...",
-	media: {
-		type: "image",
-		url: "https://images.unsplash.com/photo-1616272963049-da2d8efc0c57",
-	},
-	ups: 1247,
-	downs: 32,
-	comments: 2,
-	commentObjects: [
-		{
-			id: "c1",
-			user: "Jane",
-			text: "Wow, amazing shot!",
-			timestamp: "2023-10-27T11:00:00Z",
+const dummyPosts = [
+	{
+		id: "p1",
+		author: {
+			name: "Alex Martinez",
+			avatarUrl: "https://i.pravatar.cc/150?u=alexmartinez",
 		},
-		{
-			id: "c2",
-			user: "Tom",
-			text: "I need to go there someday.",
-			timestamp: "2023-10-27T11:15:00Z",
+		timestamp: "2023-10-27T10:30:00Z",
+		title: "Exploring the Dunes at Sunrise",
+		body: "There is something truly magical about the way the light hits the sand...",
+		media: {
+			type: "image",
+			url: "https://images.unsplash.com/photo-1616272963049-da2d8efc0c57",
 		},
-	],
-	isUpvoted: true, //  toggle these in logic and use usestate
-	isDownvoted: false,
-	isCommenting: false,
-};
+		ups: 1247,
+		downs: 32,
+		comments: 2,
+		commentObjects: [
+			{
+				id: "c1",
+				user: "Jane",
+				text: "Wow, amazing shot!",
+				timestamp: "2023-10-27T11:00:00Z",
+			},
+			{
+				id: "c2",
+				user: "Tom",
+				text: "I need to go there someday.",
+				timestamp: "2023-10-27T11:15:00Z",
+			},
+		],
+		isUpvoted: true,
+		isDownvoted: false,
+		isCommenting: false,
+	},
+	{
+		id: "p2",
+		author: {
+			name: "Sophia Lee",
+			avatarUrl: "https://i.pravatar.cc/150?u=sophialee",
+		},
+		timestamp: "2023-11-01T14:20:00Z",
+		title: "Street Photography in Tokyo",
+		body: "Capturing the hidden beauty in Shibuya’s back alleys was such a fun challenge.",
+		media: {
+			type: "image",
+			url: "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+		},
+		ups: 863,
+		downs: 14,
+		comments: 5,
+		commentObjects: [
+			{
+				id: "c1",
+				user: "Kenji",
+				text: "Love the framing here!",
+				timestamp: "2023-11-01T15:00:00Z",
+			},
+		],
+		isUpvoted: false,
+		isDownvoted: false,
+		isCommenting: false,
+	},
+	{
+		id: "p3",
+		author: {
+			name: "Liam Johnson",
+			avatarUrl: "https://i.pravatar.cc/150?u=liamjohnson",
+		},
+		timestamp: "2023-11-05T09:15:00Z",
+		title: "Rainy Days & Coffee",
+		body: "Nothing beats sitting by the window, hearing the rain, and sipping warm coffee.",
+		media: {
+			type: "video",
+			url: "https://www.pexels.com/download/video/9507463/",
+		},
+		ups: 542,
+		downs: 7,
+		comments: 3,
+		commentObjects: [
+			{
+				id: "c1",
+				user: "Emma",
+				text: "This feels so cozy ❤️",
+				timestamp: "2023-11-05T09:30:00Z",
+			},
+		],
+		isUpvoted: false,
+		isDownvoted: true,
+		isCommenting: false,
+	},
+	{
+		id: "p4",
+		author: {
+			name: "Nora Smith",
+			avatarUrl: "https://i.pravatar.cc/150?u=norasmith",
+		},
+		timestamp: "2023-11-08T20:45:00Z",
+		title: "Night Sky over the Desert",
+		body: "I tried long-exposure for the first time. The stars were unbelievable!",
+		media: {
+			type: "image",
+			url: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+		},
+		ups: 2031,
+		downs: 44,
+		comments: 8,
+		commentObjects: [
+			{
+				id: "c1",
+				user: "Carlos",
+				text: "The Milky Way looks insane here 🔥",
+				timestamp: "2023-11-08T21:00:00Z",
+			},
+		],
+		isUpvoted: false,
+		isDownvoted: false,
+		isCommenting: false,
+	},
+	{
+		id: "p5",
+		author: {
+			name: "David Chen",
+			avatarUrl: "https://i.pravatar.cc/150?u=davidchen",
+		},
+		timestamp: "2023-11-10T18:00:00Z",
+		title: "Ocean Waves Timelapse",
+		body: "Spent the evening capturing the motion of the ocean. The sound was just as incredible as the view.",
+		media: {
+			type: "video",
+			// A high-quality, royalty-free video for testing
+			url: "https://videos.pexels.com/video-files/854094/854094-hd_1920_1080_25fps.mp4",
+		},
+		ups: 1589,
+		downs: 21,
+		comments: 12,
+		commentObjects: [],
+		isUpvoted: true,
+		isDownvoted: false,
+		isCommenting: false,
+	},
+	{
+		id: "p6",
+		author: {
+			name: "Isabella Rossi",
+			avatarUrl: "https://i.pravatar.cc/150?u=isabellarossi",
+		},
+		timestamp: "2023-11-12T11:55:00Z",
+		title: "Autumn in the City",
+		body: "The colors in the park were absolutely stunning today. A perfect fall afternoon.",
+		media: {
+			type: "video",
+			url: "https://www.pexels.com/download/video/1777892/",
+		},
+		ups: 987,
+		downs: 11,
+		comments: 6,
+		commentObjects: [],
+		isUpvoted: false,
+		isDownvoted: false,
+		isCommenting: false,
+	},
+];
 
-export default dummyPostData;
+export default dummyPosts;

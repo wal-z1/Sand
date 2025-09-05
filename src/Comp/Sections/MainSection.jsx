@@ -1,6 +1,6 @@
 import SortButtonsGroups from "../Ui/SortButtonsGroups";
 import PostCard from "../Ui/PostCard";
-import dummyPostData from "../../lib/dummyPostData";
+import dummyPosts from "../../lib/dummyPostData";
 import AllPostContainer from "../Ui/AllPostContainer";
 function MainSection() {
 	return (
@@ -15,10 +15,9 @@ function MainSection() {
 			<div>
 				<AllPostContainer>
 					{/*a post*/}
-					<PostCard post={dummyPostData} />
-					<PostCard post={dummyPostData} />
-					<PostCard post={dummyPostData} />
-					<PostCard post={dummyPostData} />
+					{dummyPosts.map((p) => (
+						<PostCard post={p} />
+					))}
 				</AllPostContainer>
 			</div>
 		</div>
