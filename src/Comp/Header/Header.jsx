@@ -7,7 +7,7 @@ export default function Header() {
 
 	return (
 		// header container with sticky top and backdrop effects
-		<header className="sticky top-0 z-50 border-b border-[#C2B280]/40 bg-[#0f0f0f]/50 backdrop-blur-lg backdrop-saturate-150 supports-[backdrop-filter]:backdrop-blur-lg shadow-md">
+		<header className="sticky top-0 z-50 border-b border-[#C2B280]/40 bg-[#0f0f0f]/80 backdrop-blur-lg backdrop-saturate-150 supports-[backdrop-filter]:backdrop-blur-lg shadow-md">
 			<div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-3 sm:px-6 lg:px-8">
 				{/* left section: hamburger menu + logo */}
 				<div className="flex items-center gap-3">
@@ -59,9 +59,7 @@ export default function Header() {
 							alt="Sand Logo"
 							className="h-9 sm:h-10 w-auto drop-shadow-[0_0_4px_#c2b2806c]"
 						/>
-						<span
-			
-							className="font-sora text-xl sm:text-2xl font-extrabold text-[#EAEAEA] transition-colors duration-300 ease-in-out hover:text-white">
+						<span className="font-sora text-xl sm:text-2xl font-extrabold text-[#EAEAEA] transition-colors duration-300 ease-in-out hover:text-white">
 							Sand
 						</span>
 					</Link>
