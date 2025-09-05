@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+// purpose is just to re use teh same buttons style inside the container
 const ActionButton = ({ icon, count, onClick, label, isInteracted }) => {
 	const interactedClasses = isInteracted
 		? "bg-[#E5C07B] text-[#0F0F0F]"

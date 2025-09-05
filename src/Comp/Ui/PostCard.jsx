@@ -7,19 +7,43 @@ function PostCard({ post: initialPost }) {
 	const [post, setPost] = useState(initialPost); // take from outside now
 
 	const handleUpvote = () => {
-		setPost((prev) => ({
-			...prev,
-			isUpvoted: !prev.isUpvoted,
-			isDownvoted: false,
-		}));
+		setPost((prev) => {
+			if (prev.isUpvoted) {
+				return {
+					...prev,
+					isUpvoted: !prev.isUpvoted,
+					isDownvoted: false,
+					ups: prev.ups - 1,
+				};
+			} else {
+				return {
+					...prev,
+					isUpvoted: !prev.isUpvoted,
+					isDownvoted: false,
+					ups: prev.ups + 1,
+				};
+			}
+		});
 	};
 
 	const handleDownvote = () => {
-		setPost((prev) => ({
-			...prev,
-			isDownvoted: !prev.isDownvoted,
-			isUpvoted: false,
-		}));
+		setPost((prev) => {
+			if (prev.isDownvoted) {
+				return {
+					...prev,
+					isDownvoted: !prev.isDownvoted,
+					isUpvoted: false,
+					downs: prev.downs - 1,
+				};
+			} else {
+				return {
+					...prev,
+					isDownvoted: !prev.isDownvoted,
+					isUpvoted: false,
+					downs: prev.downs + 1,
+				};
+			}
+		});
 	};
 
 	return (

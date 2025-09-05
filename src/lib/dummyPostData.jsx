@@ -1,3 +1,4 @@
+import { useState } from "react";
 const dummyPostData = {
 	id: "p1",
 	author: {
@@ -32,4 +33,5 @@ const dummyPostData = {
 	isDownvoted: false,
 	isCommenting: false,
 };
+
 export default dummyPostData;
