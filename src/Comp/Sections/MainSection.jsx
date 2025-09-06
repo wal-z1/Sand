@@ -1,8 +1,30 @@
+import { useState } from "react";
+import { motion } from "framer-motion";
 import SortButtonsGroups from "../Ui/SortButtonsGroups";
 import PostCard from "../Ui/PostCard";
 import dummyPosts from "../../lib/dummyPostData";
 import AllPostContainer from "../Ui/AllPostContainer";
-import { useState } from "react";
+
+const postContainerAni = {
+	hidden: { opacity: 0 },
+	visible: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.1, // smooth fade in delayed children on container
+		},
+	},
+};
+// post slides from under to up
+const postAni = {
+	hidden: { y: 20, opacity: 0 },
+	visible: {
+		y: 0,
+		opacity: 1,
+		transition: {
+			duration: 0.5,
+		},
+	},
+};
 
 function MainSection() {
 	const [sortedArray, updatesorted] = useState(
@@ -36,11 +58,22 @@ function MainSection() {
 				<span className="h-[1px] flex-1 bg-gradient-to-l from-[#e1e4cc] to-[#C2B280]"></span>
 			</span>
 			<div>
-				<AllPostContainer>
-					{sortedArray.map((p) => (
-						<PostCard key={p.id} post={p} />
-					))}
-				</AllPostContainer>
+				<motion.div
+					variants={postContainerAni}
+					initial="hidden"
+					animate="visible">
+					<AllPostContainer>
+						{sortedArray.map((p) => (
+							<motion.div
+								key={p.id}
+								variants={postAni}
+								layout //  smooth re-sorting upon dom change
+							>
+								<PostCard post={p} />
+							</motion.div>
+						))}
+					</AllPostContainer>
+				</motion.div>
 			</div>
 		</div>
 	);
