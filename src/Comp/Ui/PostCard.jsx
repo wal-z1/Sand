@@ -4,9 +4,15 @@ import formatRelative from "../../lib/date";
 import MediaRenderer from "../../lib/MediaRender";
 import CommentMenu from "./CommentMenu";
 import Modal from "./Modal";
+import { useEffect } from "react";
 function PostCard({ post: initialPost }) {
 	const [post, setPost] = useState(initialPost); // take from outside now
 	const [commentModal, TogglecommentModal] = useState(false); // definition of comment Modal
+	// hide scroll bar
+	useEffect(() => {
+		document.body.style.overflow = commentModal ? "hidden" : "";
+	}, [commentModal]);
+
 	const handleUpvote = () => {
 		setPost((prev) => {
 			if (prev.isUpvoted) {
