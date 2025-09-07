@@ -2,7 +2,7 @@ import PostActions from "./PostActions/PostActions";
 import { useState } from "react";
 import formatRelative from "../../lib/date";
 import MediaRenderer from "../../lib/MediaRender";
-import CommentModal from "./CommentModal";
+import CommentModal from "./Modal";
 function PostCard({ post: initialPost }) {
 	const [post, setPost] = useState(initialPost); // take from outside now
 	const [commentModal, TogglecommentModal] = useState(false); // definition of comment Modal
@@ -93,10 +93,9 @@ function PostCard({ post: initialPost }) {
 					TogglecommentModal((prev) => !prev);
 				}}
 			/>
-			<CommentModal
-				bool={commentModal}
-				close={() => TogglecommentModal(false)}
-			/>
+			<Modal bool={commentModal} close={() => TogglecommentModal(false)}>
+				<CommentMenu></CommentMenu>
+			</Modal>
 		</div>
 	);
 }
