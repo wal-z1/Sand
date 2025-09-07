@@ -2,10 +2,10 @@ import PostActions from "./PostActions/PostActions";
 import { useState } from "react";
 import formatRelative from "../../lib/date";
 import MediaRenderer from "../../lib/MediaRender";
-
+import CommentModal from "./CommentModal";
 function PostCard({ post: initialPost }) {
 	const [post, setPost] = useState(initialPost); // take from outside now
-
+	const [commentModal, TogglecommentModal] = useState(false); // definition of comment Modal
 	const handleUpvote = () => {
 		setPost((prev) => {
 			if (prev.isUpvoted) {
@@ -88,7 +88,14 @@ function PostCard({ post: initialPost }) {
 				post={post}
 				FunUp={handleUpvote}
 				FunDown={handleDownvote}
-				onCommentClick={() => console.log("Trigger Comment")}
+				onCommentClick={() => {
+					console.log("Trigger Comment", post.id, commentModal);
+					TogglecommentModal((prev) => !prev);
+				}}
+			/>
+			<CommentModal
+				bool={commentModal}
+				close={() => TogglecommentModal(false)}
 			/>
 		</div>
 	);
