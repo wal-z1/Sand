@@ -95,7 +95,7 @@ function PostCard({ post: initialPost }) {
 				}}
 			/>
 			<Modal bool={commentModal} close={() => TogglecommentModal()}>
-				<CommentMenu></CommentMenu>
+				<CommentMenu post={post}></CommentMenu>
 			</Modal>
 		</div>
 	);
