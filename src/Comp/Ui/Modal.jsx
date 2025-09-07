@@ -1,4 +1,5 @@
-import { animate, AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+
 function Modal({ bool, close, children }) {
 	return (
 		<AnimatePresence>
@@ -23,7 +24,7 @@ function Modal({ bool, close, children }) {
 					<motion.span
 						initial={{ scale: 0.8 }}
 						animate={{ scale: 1 }}
-						className="p-2 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg sm:p-4 flex flex-col gap-4 transition-colors duration-200 hover:border-[#C2B280]/50 max-w-full z-50 ">
+						className="p-2 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg sm:p-4 flex flex-col gap-4 transition-colors duration-200 hover:border-[#C2B280]/50 z-50 w-[95%] max-w-4xl max-h-[90vh] overflow-y-auto">
 						{children}
 					</motion.span>
 				</motion.div>

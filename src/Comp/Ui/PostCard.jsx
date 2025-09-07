@@ -90,7 +90,7 @@ function PostCard({ post: initialPost }) {
 				FunUp={handleUpvote}
 				FunDown={handleDownvote}
 				onCommentClick={() => {
-					console.log("Trigger Comment", post.id, commentModal);
+					console.log("Trigger Comment Post action ", post.id, commentModal);
 					TogglecommentModal((prev) => !prev);
 				}}
 			/>
