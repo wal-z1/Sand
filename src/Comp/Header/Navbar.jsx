@@ -47,7 +47,7 @@ export default function NavBar() {
 
 	//  base and active styles for clarity
 	const baseLinkStyle =
-		"flex w-full items-center gap-3 rounded-md px-4 py-2 font-source-sans font-medium text-sm sm:text-lg text-[#A1A1A1] transition-all duration-200 ease-in-out hover:bg-white/10 hover:text-[#E5C07B] cursor-pointer";
+		"flex w-full items-center gap-3 rounded-md px-4 py-2 font-lexend font-medium text-sm sm:text-lg text-[#A1A1A1] transition-all duration-200 ease-in-out hover:bg-white/10 hover:text-[#E5C07B] cursor-pointer";
 
 	const activeLinkStyle = "bg-white/5 text-white ";
 

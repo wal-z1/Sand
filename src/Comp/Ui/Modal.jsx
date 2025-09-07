@@ -24,7 +24,8 @@ function Modal({ bool, close, children }) {
 					<motion.span
 						initial={{ scale: 0.8 }}
 						animate={{ scale: 1 }}
-						className="p-2 bg-[#1A1A1A] border border-[#2A2A2A] rounded-lg sm:p-4 flex flex-col gap-4 transition-colors duration-200 hover:border-[#C2B280]/50 z-50 w-[95%] max-w-4xl max-h-[90vh] overflow-y-auto">
+						className="p-2 bg-[#1A1A1A] border-2 border-[#2A2A2A] rounded-md sm:p-4 flex flex-col gap-4 transition-colors duration-200 hover:border-[#C2B280]/80 z-50
+						 w-[85%] max-w-3xl max-h-[80vh] overflow-y-auto">
 						{children}
 					</motion.span>
 				</motion.div>

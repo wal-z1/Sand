@@ -3,7 +3,7 @@ import ActionButton from "./ActionButton";
 
 const PostActions = ({ post, FunUp, FunDown, onCommentClick }) => {
 	return (
-		<div className="flex flex-wrap items-center gap-3 p-1 font-source-sans text-sm">
+		<div className="flex flex-wrap items-center gap-3 p-1 font-lexend text-sm">
 			{/* Upvote + Downvote */}
 			<div className="flex items-center rounded-full bg-surface border border-border p-0.5">
 				<ActionButton

@@ -56,9 +56,8 @@ export default function SideFooter() {
 	const { LeftIsHidden } = UseViewContext();
 
 	// link styling
-const linkStyle =
-  "flex items-center gap-2 px-2 py-1 font-source-sans text-sm font-medium text-[#A1A1A1] transition-colors duration-200 ease-in-out hover:text-[#E5C07B] focus:text-[#E5C07B] active:text-[#E5C07B] text-left whitespace-nowrap";
-
+	const linkStyle =
+		"flex items-center gap-2 px-2 py-1 font-lexend text-sm font-medium text-[#A1A1A1] transition-colors duration-200 ease-in-out hover:text-[#E5C07B] focus:text-[#E5C07B] active:text-[#E5C07B] text-left whitespace-nowrap";
 
 	// text animation variants
 	const textAnimation = {

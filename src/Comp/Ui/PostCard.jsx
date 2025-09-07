@@ -59,7 +59,7 @@ function PostCard({ post: initialPost }) {
 				/>
 				{/*name + date*/}
 				<div className="flex flex-col">
-					<span className="font-source-sans font-semibold text-[#EAEAEA] cursor-pointer hover:text-[#C2B280] transition-colors ">
+					<span className="font-lexend font-semibold text-[#EAEAEA] cursor-pointer hover:text-[#C2B280] transition-colors ">
 						{post.author.name}
 					</span>
 					<span
@@ -75,7 +75,7 @@ function PostCard({ post: initialPost }) {
 				<h2 className="font-sora font-bold text-lg sm:text-xl text-[#EAEAEA]">
 					{post.title}
 				</h2>
-				<p className="font-source-sans text-sm sm:text-base text-[#A1A1A1] leading-relaxed">
+				<p className="font-lexend text-sm sm:text-base text-[#A1A1A1] leading-relaxed">
 					{post.body}
 				</p>
 				<MediaRenderer media={post.media} />

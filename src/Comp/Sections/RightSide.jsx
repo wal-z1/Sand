@@ -35,7 +35,7 @@ function RightSide() {
 						to="#" // link to user profile in the future
 						className="flex items-center justify-between rounded-md p-2 transition-colors duration-150 ease-in-out hover:bg-white/5">
 						{/* name */}
-						<span className="font-source-sans text-sm text-[#A1A1A1]">
+						<span className="font-lexend text-sm text-[#A1A1A1]">
 							{contact.name}
 						</span>
 

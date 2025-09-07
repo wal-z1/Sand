@@ -44,7 +44,7 @@ function CommentMenu({ post }) {
 									{formatRelative(c.timestamp)}
 								</span>
 							</div>
-							<p className="text-xl sm:text-2xl leading-snug text-[#F1F1F1] break-words">
+							<p className="text-md sm:text-xl leading-snug text-[#F1F1F1] break-words">
 								{c.text}
 							</p>
 						</div>
