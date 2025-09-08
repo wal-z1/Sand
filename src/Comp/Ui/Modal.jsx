@@ -21,9 +21,9 @@ function Modal({ bool, close, children }) {
 
 					{/* frame i used spring which is better for pop ups */}
 					<motion.span
-						initial={{ scale: 0.9, opacity: 0 }}
-						animate={{ scale: 1, opacity: 1 }}
-						exit={{ scale: 0.9, opacity: 0 }}
+						initial={{ opacity: 0, y: -20 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0 }}
 						transition={{ type: "spring", stiffness: 220, damping: 20 }}
 						className="p-4 sm:p-6 bg-[#1A1A1A] border border-[#2A2A2A] 
 						rounded-xl flex flex-col gap-4 transition-colors duration-200 
