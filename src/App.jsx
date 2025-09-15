@@ -9,9 +9,9 @@ function App() {
 	useEffect(() => {
 		async function TheBAckendFetchFUn() {
 			try {
-				const back = await fetch("/api");
-
-				console.log(back);
+				const res = await fetch("/api");
+				const data = await res.json();
+				console.log("Backend says:", data);
 			} catch (err) {
 				console.error("error from backend", err);
 			}
