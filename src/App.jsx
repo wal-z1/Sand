@@ -6,19 +6,6 @@ import { useEffect } from "react";
 import About from "./Comp/Pages/About";
 
 function App() {
-	useEffect(() => {
-		async function TheBAckendFetchFUn() {
-			try {
-				const res = await fetch("/api");
-				const data = await res.json();
-				console.log("Backend says:", data);
-			} catch (err) {
-				console.error("error from backend", err);
-			}
-		}
-		TheBAckendFetchFUn();
-	}, []);
-
 	return (
 		<ViewProvider>
 			<Header />
