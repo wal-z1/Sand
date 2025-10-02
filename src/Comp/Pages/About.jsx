@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import LeftSide from "../Sections/LeftSide/LeftSide";
 import { UseViewContext } from "../../Context/ViewContext";
+import LayoutV1 from "../LayoutV1";
 
 // faq content data
 const FAQ_ITEMS = [
@@ -102,31 +103,21 @@ function About() {
 	const { LeftIsHidden } = UseViewContext();
 
 	return (
-		<motion.div
-			className="font-lexend sm:grid gap-3 text-[#EAEAEA]"
-			initial={{ opacity: 0.97 }}
-			animate={{
-				opacity: 1,
-				// adjust grid columns based on sidebar state
-				gridTemplateColumns: LeftIsHidden
-					? "65px 3fr 250px"
-					: "250px 3fr 250px",
-			}}
-			// smooth animation
-			transition={{ duration: 0.44, ease: "easeInOut" }}>
-			<LeftSide />
-
-			<div className="space-y-6 max-w-2xl mx-auto mt-16">
-				{FAQ_ITEMS.map((item, index) => (
-					<FAQItem
-						key={index}
-						title={item.title}
-						content={item.content}
-						index={index}
-					/>
-				))}
-			</div>
-		</motion.div>
+		<LayoutV1
+			left={<LeftSide />}
+			main={
+				<div className="space-y-6 max-w-2xl mx-auto mt-16">
+					{FAQ_ITEMS.map((item, index) => (
+						<FAQItem
+							key={index}
+							title={item.title}
+							content={item.content}
+							index={index}
+						/>
+					))}
+				</div>
+			}
+		/>
 	);
 }
 

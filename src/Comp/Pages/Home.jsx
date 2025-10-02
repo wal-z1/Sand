@@ -1,36 +1,15 @@
 import RightSide from "../Sections/RightSide";
 import MainSection from "../Sections/MainSection";
 import LeftSide from "../Sections/LeftSide/LeftSide";
-import { UseViewContext } from "../../Context/ViewContext";
-import { motion } from "framer-motion";
+import LayoutV1 from "../LayoutV1";
 
 function Home() {
-	const { LeftIsHidden } = UseViewContext();
-
 	return (
-		<motion.div
-			className="font-lexend sm:grid gap-3 text-[#EAEAEA]"
-			initial={{ opacity: 0.97 }}
-			animate={{
-				opacity: 1,
-				// adjust grid columns based on sidebar state
-				gridTemplateColumns: LeftIsHidden
-					? "65px 3fr 250px"
-					: "250px 3fr 250px",
-			}}
-			// smooth animation
-			transition={{ duration: 0.44, ease: "easeInOut" }}>
-			<LeftSide />
-
-			<main>
-				<MainSection />
-			</main>
-
-			{/* right sidebar - hidden on mobile */}
-			<aside className="hidden sm:block">
-				<RightSide />
-			</aside>
-		</motion.div>
+		<LayoutV1
+			left={<LeftSide />}
+			right={<RightSide />}
+			main={<MainSection />}
+		/>
 	);
 }
 
