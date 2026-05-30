@@ -5,52 +5,28 @@ import MediaRenderer from "../../lib/MediaRender";
 import CommentMenu from "./CommentMenu";
 import Modal from "./Modal";
 import { useEffect } from "react";
+import { votePost } from "../../lib/api";
+import { useAuth } from "../../Context/AuthContext";
 function PostCard({ post: initialPost }) {
 	const [post, setPost] = useState(initialPost); // take from outside now
 	const [commentModal, TogglecommentModal] = useState(false); // definition of comment Modal
+	const { user } = useAuth();
 	// hide scroll bar
 	useEffect(() => {
 		document.body.style.overflow = commentModal ? "hidden" : "";
 	}, [commentModal]);
 
-	const handleUpvote = () => {
-		setPost((prev) => {
-			if (prev.isUpvoted) {
-				return {
-					...prev,
-					isUpvoted: !prev.isUpvoted,
-					isDownvoted: false,
-					ups: prev.ups - 1,
-				};
-			} else {
-				return {
-					...prev,
-					isUpvoted: !prev.isUpvoted,
-					isDownvoted: false,
-					ups: prev.ups + 1,
-				};
-			}
-		});
-	};
-
-	const handleDownvote = () => {
-		setPost((prev) => {
-			if (prev.isDownvoted) {
-				return {
-					...prev,
-					isDownvoted: !prev.isDownvoted,
-					isUpvoted: false,
-					downs: prev.downs - 1,
-				};
-			} else {
-				return {
-					...prev,
-					isDownvoted: !prev.isDownvoted,
-					isUpvoted: false,
-					downs: prev.downs + 1,
-				};
-			}
-		});
+	const handleVote = async (direction) => {
+		if (!user) {
+			alert("Sign in to vote.");
+			return;
+		}
+		try {
+			const updated = await votePost(post.id, direction, user);
+			setPost(updated);
+		} catch (err) {
+			console.error(err);
+		}
 	};
 
 	return (
@@ -93,15 +69,15 @@ function PostCard({ post: initialPost }) {
 			{/* Post Actions */}
 			<PostActions
 				post={post}
-				FunUp={handleUpvote}
-				FunDown={handleDownvote}
+				FunUp={() => handleVote("up")}
+				FunDown={() => handleVote("down")}
 				onCommentClick={() => {
 					console.log("Trigger Comment Post action ", post.id, commentModal);
 					TogglecommentModal((prev) => !prev);
 				}}
 			/>
 			<Modal bool={commentModal} close={() => TogglecommentModal()}>
-				<CommentMenu post={post}></CommentMenu>
+				<CommentMenu post={post} onPostUpdated={setPost} />
 			</Modal>
 		</div>
 	);

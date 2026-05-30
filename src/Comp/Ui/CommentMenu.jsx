@@ -1,9 +1,39 @@
 // comment menu
 import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import formatRelative from "../../lib/date";
+import { addComment } from "../../lib/api";
+import { useAuth } from "../../Context/AuthContext";
 
-function CommentMenu({ post }) {
+function CommentMenu({ post, onPostUpdated }) {
+	const { user } = useAuth();
+	const [text, setText] = useState("");
+	const [saving, setSaving] = useState(false);
+	const [error, setError] = useState("");
 	const comments = post.commentObjects || [];
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		if (!user) {
+			setError("Sign in to comment.");
+			return;
+		}
+		if (!text.trim()) {
+			setError("Comment cannot be empty.");
+			return;
+		}
+		setError("");
+		setSaving(true);
+		try {
+			const updated = await addComment(post.id, text.trim(), user);
+			onPostUpdated?.(updated);
+			setText("");
+		} catch (err) {
+			setError(err.message || "Failed to add comment.");
+		} finally {
+			setSaving(false);
+		}
+	};
 
 	return (
 		<div className="flex flex-col w-full max-h-[80vh] overflow-y-auto pb-4">
@@ -13,6 +43,26 @@ function CommentMenu({ post }) {
 					Comments ({comments.length})
 				</h2>
 			</div>
+
+			<form onSubmit={handleSubmit} className="mb-4 flex flex-col gap-2">
+				<textarea
+					value={text}
+					onChange={(e) => setText(e.target.value)}
+					rows={3}
+					placeholder={user ? "Write a comment..." : "Sign in to comment"}
+					className="rounded-md border border-[#2A2A2A] bg-[#0F0F0F] px-3 py-2 text-sm text-[#EAEAEA]"
+					disabled={!user}
+				/>
+				<div className="flex items-center justify-between">
+					{error && <span className="text-xs text-red-400">{error}</span>}
+					<button
+						type="submit"
+						disabled={saving || !user}
+						className="rounded-md bg-[#C2B280] px-4 py-2 text-xs font-semibold text-[#0F0F0F] hover:bg-[#E5C07B] disabled:opacity-60">
+						{saving ? "Posting..." : "Post comment"}
+					</button>
+				</div>
+			</form>
 
 			{/* empty */}
 			{comments.length === 0 && (
