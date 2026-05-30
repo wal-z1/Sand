@@ -241,6 +241,10 @@ app.post("/api/auth/mock-google", (req, res) => {
 	res.json({ user });
 });
 
-app.listen(PORT, () => {
-	console.log(`API server running on http://localhost:${PORT}`);
-});
+if (require.main === module) {
+	app.listen(PORT, () => {
+		console.log(`API server running on http://localhost:${PORT}`);
+	});
+}
+
+module.exports = app;
